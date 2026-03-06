@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -22,3 +23,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+=======
+.DS_Store
+.env
+/node_modules/
+
+# React Router
+/.react-router/
+/build/
+>>>>>>> dd4cac6f7e6bc5e79ecd191c6f97f320cf030f3f
