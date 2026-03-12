@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-// Helper function to get initial form data from sessionStorage
 const getInitialFormData = () => {
   try {
     const savedFormData = sessionStorage.getItem("personalInfoFormData");
@@ -22,7 +21,6 @@ const getInitialFormData = () => {
   };
 };
 
-// Helper function to get initial file state from sessionStorage
 const getInitialFileState = () => {
   try {
     const savedFileName = sessionStorage.getItem("uploadedFileName");
@@ -42,13 +40,10 @@ const PersonalInfo = () => {
   const [personalInfoOpen, setPersonalInfoOpen] = useState(false);
   const [uploadDocumentsOpen, setUploadDocumentsOpen] = useState(false);
 
-  // Form state - initialized from sessionStorage
   const [formData, setFormData] = useState(getInitialFormData);
 
-  // File upload state - initialized from sessionStorage
   const [uploadedFile, setUploadedFile] = useState(getInitialFileState);
 
-  // Track if user has saved each section - initialized from sessionStorage
   const [personalInfoSaved, setPersonalInfoSaved] = useState(() => {
     try {
       return sessionStorage.getItem("personalInfoSaved") === "true";
@@ -65,7 +60,6 @@ const PersonalInfo = () => {
     }
   });
 
-  // Validation function for Personal Information
   const isPersonalInfoComplete = () => {
     return (
       formData.firstname.trim() !== "" &&
@@ -76,7 +70,6 @@ const PersonalInfo = () => {
     );
   };
 
-  // Validation function for Upload Documents
   const isUploadDocumentsComplete = () => {
     return uploadedFile !== null;
   };
@@ -369,7 +362,7 @@ const PersonalInfo = () => {
             <p className="font-aeonik font-normal text-base leading-[140%] tracking-normal">
               Valid ID Card *
             </p>
-            <label className="w-full h-12 flex items-center mt-1 p-3.5 rounded-xl border border-[#D0D5DD] cursor-pointer bg-gray-50 hover:bg-gray-100">
+            <label className="w-full h-12 flex items-center mt-1 p-3.5 rounded-xl border border-[#D0D5DD] cursor-pointer bg-gray-50 hover:bg-gray-100 mb-4">
               <input
                 type="file"
                 className="hidden"
@@ -385,7 +378,6 @@ const PersonalInfo = () => {
                 </span>
               )}
             </label>
-
             <button
               onClick={handleUploadDocumentsSave}
               className="w-full bg-teal-600 text-white my-5 py-2 rounded-xl hover:bg-teal-700 transition"
