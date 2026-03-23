@@ -1,4 +1,4 @@
-// import "@mantine/core/styles.css";
+import "@mantine/core/styles.css";
 // ‼️ import dropzone styles after core package styles
 // import "@mantine/dropzone/styles.css";
 import { StrictMode } from "react";

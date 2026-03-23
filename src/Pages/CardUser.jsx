@@ -5,7 +5,7 @@ const CardUser = () => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate("/MyCardsSection");
+    navigate("/onboarding");
   };
   return (
     <>

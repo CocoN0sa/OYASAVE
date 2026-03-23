@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const getInitialFormData = () => {
   try {
@@ -37,6 +38,7 @@ const getInitialFileState = () => {
 };
 
 const PersonalInfo = () => {
+  const navigate = useNavigate();
   const [personalInfoOpen, setPersonalInfoOpen] = useState(false);
   const [uploadDocumentsOpen, setUploadDocumentsOpen] = useState(false);
 
@@ -124,7 +126,7 @@ const PersonalInfo = () => {
     <div>
       <div className="container bg-white w-full max-w-md mx-auto p-4 pb-24">
         <div id="return-button" className="mt-2 mb-2">
-          <button type="button">
+          <button type="button" onClick={() => navigate("/onboarding")}>
             <p className="text-4xl">←</p>
           </button>
         </div>
