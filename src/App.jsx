@@ -36,7 +36,6 @@ const router = createBrowserRouter(
         <Route index element={<PersonalInfo />} />
         <Route path="MyCardsSection" element={<MyCardsSection />} />
         <Route path="carduser" element={<CardUser />} />
-        {/* If 'home' is supposed to have nav after onboarding, place it here, otherwise it's in AuthLayout */}
       </Route>
 
       {/* Routes without Navigation */}
