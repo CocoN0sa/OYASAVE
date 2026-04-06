@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import master from '../imgs/Mastercard.png'
 
 const MyCardsSection = () => {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ const MyCardsSection = () => {
           <button className="w-full flex items-center justify-between p-3 pl-0 text-left">
             <div className="flex items-center gap-3">
               <img
-                src="/src/imgs/Mastercard.png"
+                src={master}
                 alt="Mastercard"
                 className="w-5 h-6 object-contain"
               />
@@ -67,7 +68,7 @@ const MyCardsSection = () => {
           <button className="w-full flex items-center justify-between p-3 pl-0 text-left">
             <div className="flex items-center gap-3">
               <img
-                src="/src/imgs/Mastercard.png"
+                src={master}
                 alt="Mastercard"
                 className="w-5 h-6 object-contain"
               />

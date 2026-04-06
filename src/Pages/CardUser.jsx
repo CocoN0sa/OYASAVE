@@ -1,5 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import masterlogo from '../imgs/Frame 1618868492.png'
+import pencil from "../imgs/Group 6847.png";
+import block from "../imgs/unavailable.png";
+import check from '../imgs/check-list.png'
 
 const CardUser = () => {
   const navigate = useNavigate();
@@ -17,7 +21,7 @@ const CardUser = () => {
         </div>
         <div className="w-full h-auto gap-[4px] opacity-100 flex flex-col items-center justify-center py-8">
           <img
-            src="/src/imgs/Frame 1618868492.png"
+            src={masterlogo}
             alt="Mastercard"
             className="w-[139px] h-[139px] object-contain"
           />
@@ -35,7 +39,7 @@ const CardUser = () => {
           <button className="w-full flex items-center justify-between p-3 pl-0 text-left">
             <div className="flex items-center gap-3">
               <img
-                src="/src/imgs/Group 6847.png"
+                src={pencil}
                 alt="Mastercard"
                 className="w-5 h-6 object-contain"
               />
@@ -69,7 +73,7 @@ const CardUser = () => {
           <button className="w-full flex items-center justify-between p-3 pl-0 text-left">
             <div className="flex items-center gap-3">
               <img
-                src="/src/imgs/unavailable.png"
+                src={block}
                 alt="Mastercard"
                 className="w-5 h-6 object-contain"
               />
@@ -101,7 +105,7 @@ const CardUser = () => {
           <button className="w-full flex items-center justify-between p-3 pl-0 text-left">
             <div className="flex items-center gap-3">
               <img
-                src="/src/imgs/check-list.png"
+                src={check}
                 alt="Mastercard"
                 className="w-5 h-6 object-contain"
               />
