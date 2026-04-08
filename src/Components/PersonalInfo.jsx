@@ -197,7 +197,7 @@ const PersonalInfo = () => {
                 : "max-h-0 opacity-0"
             }`}
           >
-            <div className="p-4 pl-0 pt-0 space-y-4">
+            <div className="pl-0 pt-0 space-y-4">
               <div className="Firstname">
                 <label
                   className="font-aeonik font-normal text-base leading-[140%] tracking-normal"
