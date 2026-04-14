@@ -14,6 +14,9 @@ import PasswordChanged from "./Components/passwordChanged";
 import OnboardingScreen from "./Components/onboardingscreen";
 import SignupScreen, { action as signupAction } from "./Components/signupScreen";
 import AuthCallback, { loader as authCallbackLoader } from "./Components/auth.callback";
+import SigninWelcome from "./Components/SigninWelcome";
+import Experience from "./Pages/Experience";
+import AutomatedSavings from "./Pages/AutomatedSavings";
 
 function AppLayout() {
   return (
@@ -49,6 +52,9 @@ const router = createBrowserRouter(
         <Route path="onboarding" element={<OnboardingScreen />} />
         <Route path="signup" element={<SignupScreen />} action={signupAction} />
         <Route path="auth/callback" element={<AuthCallback />} loader={authCallbackLoader} />
+        <Route path="SigninWelcome" element={<SigninWelcome />} />
+        <Route path="Experience" element={<Experience />} />
+        <Route path="AutomatedSavings" element={<AutomatedSavings />} />
       </Route>
     </Route>
   )
