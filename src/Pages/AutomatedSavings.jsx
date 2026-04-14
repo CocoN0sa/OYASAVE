@@ -3,7 +3,7 @@ import React from "react";
 const AutomatedSavings = () => {
   return (
     <div className="min-h-screen bg-white">
-      <div className="mx-auto flex min-h-[calc(100vh-4px)] w-full max-w-md flex-col px-4 pb-6 pt-12 sm:px-6 sm:pt-16">
+      <div className="mx-auto flex min-h-[calc(100vh-4px)] w-full max-w-md flex-col items-center px-4 pb-6 pt-12 sm:px-6 sm:pt-16">
         <div className="w-full text-[28px] font-bold">Automated Savings</div>
 
         <div className="mt-4 w-full">
@@ -12,7 +12,7 @@ const AutomatedSavings = () => {
             Add your Card for seamless savings
           </p>
         </div>
-        <div className="userData mt-5 flex w-full flex-col items-">
+        <div className="userData mt-5 flex w-full flex-col items-center">
           <div className="w-full max-w-[342px]">
             <label htmlFor="" className="text-[16px] text-[#393F4A]">
               Cardholder Name
@@ -45,7 +45,7 @@ const AutomatedSavings = () => {
               type="month"
               name=""
               id=""
-              placeholder="Enter Cardholder Name"
+              placeholder=""
               className="mt-1 h-[48px] w-full rounded-[12px] border border-[#D0D5DD] px-3 placeholder:text-[14px] placeholder:font-normal placeholder:leading-4 placeholder:text-[#98A2B3]"
             />
           </div>
@@ -62,19 +62,20 @@ const AutomatedSavings = () => {
             />
           </div>
 
-          <div className="buttons mt-5 flex w-full max-w-[342px] flex-col items-center">
+          <div className="buttons mt-5 flex w-full max-w-[342px] flex-col items-center justify-center">
             <button
               type="submit"
-              className="h-[48px] w-full rounded-[12px] border border-[#D0D5DD] bg-[#44A1A0] px-3 text-white placeholder:text-[14px] placeholder:font-normal placeholder:leading-4 placeholder:text-[#98A2B3]"
+              className="h-[48px] w-full rounded-[12px] border-[#D0D5DD] bg-[#44A1A0] px-3 text-white placeholder:text-[14px] placeholder:font-normal placeholder:leading-4 placeholder:text-[#98A2B3]"
             >
               save card
             </button>
             <div className="flex justify-center items-center my-4">
-              ____________________<p>or</p>____________________
+              ______________________ <p className="p-2 pt-4">or</p>{" "}
+              ______________________
             </div>
             <button
               type="submit"
-              className="h-[48px] w-full rounded-[12px] border border-[#D0D5DD] bg-[#EFF1F5] px-3 placeholder:text-[14px] placeholder:font-normal placeholder:leading-4 placeholder:text-[#98A2B3]"
+              className="h-[48px] w-full text-[#98A2B3] rounded-[12px] border-[#D0D5DD] bg-[#EFF1F5] px-3 placeholder:text-[14px] placeholder:font-normal placeholder:leading-4 placeholder:text-[#98A2B3]"
             >
               Skip
             </button>
