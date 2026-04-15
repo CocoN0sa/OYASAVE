@@ -1,5 +1,5 @@
 import { Anchor, Box, Button, Checkbox, Divider, TextInput, PasswordInput, Text } from "@mantine/core";
-import { Form, Link, redirect, useActionData, useNavigation } from "react-router";
+import { Form, Link, redirect, useActionData, useNavigation } from "react-router-dom";
 import { useState } from "react";
 import { useDisclosure } from "@mantine/hooks";
 
@@ -10,13 +10,18 @@ export async function action({ request }) {
   const formData = await request.formData();
   const email = formData.get("email");
   const password = formData.get("password");
+  const confirmPassword = formData.get("confirmPassword");
+
+  if (password !== confirmPassword) {
+    return { error: "Passwords do not match. Please try again." };
+  }
 
   const supabase = createSupabaseClient();
   const { error } = await supabase.auth.signUp({
     email,
     password,
     options: {
-      emailRedirectTo: `${new URL(request.url).origin}/auth/callback?next=/home`,
+      emailRedirectTo: `${new URL(request.url).origin}/auth/callback?next=/personalInfo`,
     },
   });
 
@@ -46,7 +51,7 @@ export default function SignupScreen() {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-          redirectTo: `${window.location.origin}/auth/callback?next=/home`,
+          redirectTo: `${window.location.origin}/auth/callback?next=/personalInfo`,
         },
       });
       if (error) {
@@ -138,6 +143,8 @@ export default function SignupScreen() {
             />
           </Box>
 
+
+
           <Button 
             type="submit"
             loading={isSubmitting}
@@ -163,6 +170,13 @@ export default function SignupScreen() {
           />
           Sign up with Google
         </Button>
+
+        <Text className="text-center! mt-8! text-[#393F4A]! text-[14px]! md:text-[16px]! font-normal!">
+          Already have an account?{" "}
+          <Link to="/signin" className="text-[#44A1A0] font-medium hover:underline">
+            Log in
+          </Link>
+        </Text>
       </Box>
     </div>
   );

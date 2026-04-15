@@ -6,14 +6,14 @@ import CardUser from "./Pages/CardUser";
 import Nav from "./Nav";
 
 import Home from "./Components/home";
-import SigninPage, { action as signinAction } from "./Components/signinPage";
+import SigninPage from "./Components/signinPage";
 import ForgotPassword from "./Components/forgotPassword";
 import VerifyCode from "./Components/verifyCode";
 import SetNewPassword from "./Components/setNewPassword";
 import PasswordChanged from "./Components/passwordChanged";
 import OnboardingScreen from "./Components/onboardingscreen";
 import SignupScreen, { action as signupAction } from "./Components/signupScreen";
-import AuthCallback, { loader as authCallbackLoader } from "./Components/auth.callback";
+import AuthCallback from "./Components/auth.callback";
 
 function AppLayout() {
   return (
@@ -33,7 +33,7 @@ const router = createBrowserRouter(
     <Route path="/">
       {/* Routes with Navigation */}
       <Route element={<AppLayout />}>
-        <Route index element={<PersonalInfo />} />
+        <Route path="personalInfo" element={<PersonalInfo />} />
         <Route path="MyCardsSection" element={<MyCardsSection />} />
         <Route path="carduser" element={<CardUser />} />
         {/* If 'home' is supposed to have nav after onboarding, place it here, otherwise it's in AuthLayout */}
@@ -41,15 +41,16 @@ const router = createBrowserRouter(
 
       {/* Routes without Navigation */}
       <Route element={<AuthLayout />}>
+        <Route index element={<Home />} />
         <Route path="home" element={<Home />} />
-        <Route path="signin" element={<SigninPage />} action={signinAction} />
+        <Route path="signin" element={<SigninPage />} />
         <Route path="forgotPassword" element={<ForgotPassword />} />
         <Route path="verifyCode" element={<VerifyCode />} />
         <Route path="setNewPassword" element={<SetNewPassword />} />
         <Route path="passwordChanged" element={<PasswordChanged />} />
         <Route path="onboarding" element={<OnboardingScreen />} />
         <Route path="signup" element={<SignupScreen />} action={signupAction} />
-        <Route path="auth/callback" element={<AuthCallback />} loader={authCallbackLoader} />
+        <Route path="auth/callback" element={<AuthCallback />} />
       </Route>
     </Route>
   )

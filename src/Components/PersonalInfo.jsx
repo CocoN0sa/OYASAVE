@@ -123,25 +123,26 @@ const PersonalInfo = () => {
   const uploadDocumentsStatus = isUploadDocumentsComplete();
 
   return (
-    <div>
-      <div className="container bg-white w-full max-w-md mx-auto p-4 pb-24">
-        <div id="return-button" className="mt-2 mb-2">
+    <div className="min-h-screen bg-white">
+      <div className="w-full sm:max-w-md mx-auto p-4 sm:p-6 pb-24">
+        <div id="return-button" className="mt-2 mb-4">
           <button type="button" onClick={() => navigate("/onboarding")}>
-            <p className="text-4xl">←</p>
+            <p className="text-3xl sm:text-4xl text-gray-700 font-light">←</p>
           </button>
         </div>
-        <div className="w-full h-auto gap-[4px] opacity-100">
+        <div className="w-full opacity-100">
           <div className="heading">
-            <h2 className="font-bold text-2xl leading-[140%] tracking-normal">
+            <h2 className="font-bold text-2xl sm:text-3xl tracking-tight">
               Update Personal Info
             </h2>
           </div>
-          <div className="subtext">
-            <p className="font-normal text-base pt-2 leading-[140%] tracking-normal text-[#98A2B3]">
+          <div className="subtext mt-1">
+            <p className="font-normal text-base text-[#98A2B3]">
               KYC & Verification
             </p>
           </div>
         </div>
+
 
         <div className="w-full bg-white rounded-2xl">
           <button
@@ -157,7 +158,7 @@ const PersonalInfo = () => {
                       : "/src/imgs/error.png"
                   }
                   alt=""
-                  className="w-[17px & 17px] h-[17px] mt-1.5"
+                  className="w-[17px] h-[17px] mt-1.5 object-contain"
                 />
               )}
               <div>
@@ -208,7 +209,7 @@ const PersonalInfo = () => {
                 />
               </div>
 
-              <div className="middlename mt-[-10px]">
+              <div className="middlename">
                 <label
                   className="font-aeonik font-normal text-base leading-[140%] tracking-normal"
                   htmlFor="middlename"
@@ -225,7 +226,7 @@ const PersonalInfo = () => {
                 />
               </div>
 
-              <div className="lastname mt-[-10px]">
+              <div className="lastname">
                 <label
                   className="font-aeonik font-normal text-base leading-[140%] tracking-normal"
                   htmlFor="lastname"
@@ -241,7 +242,7 @@ const PersonalInfo = () => {
                   className="w-full border rounded-xl px-3 py-2 my-1 border-[#D0D5DD] placeholder-[#98A2B3]"
                 />
               </div>
-              <div className="gender mt-[-10px]">
+              <div className="gender">
                 <label
                   className="font-aeonik font-normal text-base leading-[140%] tracking-normal"
                   htmlFor="gender"
@@ -269,7 +270,7 @@ const PersonalInfo = () => {
                 </select>
               </div>
 
-              <div className="date mt-[-10px]">
+              <div className="date">
                 <label
                   className="font-aeonik font-normal text-base leading-[140%] tracking-normal"
                   htmlFor="date"
@@ -286,7 +287,7 @@ const PersonalInfo = () => {
                 />
               </div>
 
-              <div className="phonenumber mt-[-10px]">
+              <div className="phonenumber">
                 <label
                   className="font-aeonik font-normal text-base leading-[140%] tracking-normal"
                   htmlFor="phonenumber"
@@ -328,7 +329,7 @@ const PersonalInfo = () => {
                       : "/src/imgs/error.png"
                   }
                   alt=""
-                  className="w-[17px & 17px] h-[17px] mt-1.5"
+                  className="w-[17px] h-[17px] mt-1.5 object-contain"
                 />
               )}
               <div>

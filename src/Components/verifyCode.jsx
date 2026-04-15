@@ -53,7 +53,7 @@ export default function VerifyCode() {
       setMessage("Success! Code verified.");
       setTimeout(() => {
         if (fromSignup) {
-          navigate("/carduser");
+          navigate("/personalInfo");
         } else {
           navigate("/setNewPassword");
         }
