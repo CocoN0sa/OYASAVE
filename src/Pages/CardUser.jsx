@@ -9,7 +9,7 @@ const CardUser = () => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate("/onboarding");
+    navigate("/MyCardsSection");
   };
   return (
     <>

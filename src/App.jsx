@@ -36,14 +36,14 @@ const router = createBrowserRouter(
     <Route path="/">
       {/* Routes with Navigation */}
       <Route element={<AppLayout />}>
-        <Route index element={<PersonalInfo />} />
+        <Route path="PersonalInfo" element={<PersonalInfo />} />
         <Route path="MyCardsSection" element={<MyCardsSection />} />
         <Route path="carduser" element={<CardUser />} />
       </Route>
 
       {/* Routes without Navigation */}
       <Route element={<AuthLayout />}>
-        <Route path="home" element={<Home />} />
+        <Route path="/" index element={<Home />} />
         <Route path="signin" element={<SigninPage />} action={signinAction} />
         <Route path="forgotPassword" element={<ForgotPassword />} />
         <Route path="verifyCode" element={<VerifyCode />} />

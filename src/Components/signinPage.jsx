@@ -2,25 +2,14 @@ import { Anchor, Box, Button, Checkbox, Divider, Input, PasswordInput, Text } fr
 import { useState } from "react";
 import { Link, Form, useActionData, useNavigation, redirect } from "react-router-dom";
 import { useDisclosure } from "@mantine/hooks";
-import { createSupabaseClient } from "../lib/supabase.client";
+import { useNavigate } from "react-router-dom";
 
+
+
+// Auth removed (no Supabase)
 // eslint-disable-next-line react-refresh/only-export-components
 export async function action({ request }) {
-  const formData = await request.formData();
-  const email = formData.get("email");
-  const password = formData.get("password");
-
-  const supabase = createSupabaseClient();
-  const { error } = await supabase.auth.signInWithPassword({
-    email,
-    password,
-  });
-
-  if (error) {
-    return { error: error.message };
-  }
-
-  return redirect("/");
+  return { error: "Demo mode - auth disabled" };
 }
 
 
@@ -35,23 +24,11 @@ export default function SigninPage() {
   const isSubmitting = navigation.state === "submitting";
   const [googleError, setGoogleError] = useState(null);
 
-  const handleGoogleSignIn = async () => {
-    try {
-      setGoogleError(null);
-      const supabase = createSupabaseClient();
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-        options: {
-          redirectTo: `${window.location.origin}/auth/callback?next=/`,
-        },
-      });
-      if (error) {
-        setGoogleError(error.message);
-      }
-    } catch (err) {
-      setGoogleError(err.message || "Something went wrong");
-    }
-  };
+  const handleGoogleSignIn = () => {
+      alert("Google OAuth disabled in demo mode");
+    };
+      const navigate = useNavigate();
+
 
   return (
     <div className="flex  flex-col justify-center px-6 py-[103px] md:items-center lg:px-8 font-aeonik">
@@ -93,7 +70,7 @@ export default function SigninPage() {
         Forgot Password?
       </Anchor>
         </Box>
-        <Button type="submit" form="signin-form" fullWidth mt="xl" loading={isSubmitting} className="bg-[#44A1A0]! text-white! rounded-[12px]! font-normal! text-[16px]! transition-all! duration-300! ease-out! h-12!">Sign In</Button>
+        <Button type="submit" form="signin-form" fullWidth mt="xl" loading={isSubmitting} onClick={() => navigate("/PersonalInfo")} className="bg-[#44A1A0]! text-white! rounded-[12px]! font-normal! text-[16px]! transition-all! duration-300! ease-out! h-12!">Sign In</Button>
 
         <Divider my="xs" label="Or" labelPosition="center" className="pt-6!" />
 

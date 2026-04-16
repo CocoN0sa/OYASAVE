@@ -1,9 +1,11 @@
 import { Anchor, Box, Button, Checkbox, Divider, TextInput, PasswordInput, Text } from "@mantine/core";
-import { Form, Link, redirect, useActionData, useNavigation } from "react-router";
+import { Form, Link, Navigate, redirect, useActionData, useNavigation } from "react-router";
 import { useState } from "react";
 import { useDisclosure } from "@mantine/hooks";
+import { useNavigate } from "react-router-dom";
 
-import { createSupabaseClient } from "../lib/supabase.client";
+
+
 
 // eslint-disable-next-line react-refresh/only-export-components
 export async function action({ request }) {
@@ -11,14 +13,7 @@ export async function action({ request }) {
   const email = formData.get("email");
   const password = formData.get("password");
 
-  const supabase = createSupabaseClient();
-  const { error } = await supabase.auth.signUp({
-    email,
-    password,
-    options: {
-      emailRedirectTo: `${new URL(request.url).origin}/auth/callback?next=/home`,
-    },
-  });
+  // Supabase removed - demo mode
 
   if (error) {
     console.error("Supabase Signup Error Details:", error);
@@ -33,22 +28,19 @@ export default function SignupScreen() {
   const [visibleConfirm, { toggle: toggleConfirm }] = useDisclosure(false);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(true);
   
   const actionData = useActionData();
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   const [authError, setAuthError] = useState(null);
 
+  const isFormValid = password && confirmPassword === password && password.length >= 6 && termsAccepted;
+
   const handleGoogleSignIn = async () => {
     try {
       setAuthError(null);
-      const supabase = createSupabaseClient();
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-        options: {
-          redirectTo: `${window.location.origin}/auth/callback?next=/home`,
-        },
-      });
+      // Supabase removed - demo mode
       if (error) {
         console.error("Google Auth Error:", error);
         setAuthError(error.message);
@@ -58,6 +50,9 @@ export default function SignupScreen() {
       setAuthError(err.message || "An unexpected error occurred during Google Sign-In.");
     }
   };
+
+    const navigate = useNavigate();
+
 
   return (
     <div className="flex flex-col justify-center px-6 py-[103px] min-h-dvh md:items-center lg:px-8 font-aeonik">
@@ -142,6 +137,7 @@ export default function SignupScreen() {
             type="submit"
             loading={isSubmitting}
             fullWidth 
+            onClick={() => navigate("/Signin")}
             className="bg-[#44A1A0]! hover:bg-[#3b8c8b]! text-white! rounded-[12px]! font-normal! text-[16px]! transition-all! duration-300! ease-out! h-12!"
           >
             Create Account
