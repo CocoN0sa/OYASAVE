@@ -123,11 +123,11 @@ const PersonalInfo = () => {
   const uploadDocumentsStatus = isUploadDocumentsComplete();
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="w-full sm:max-w-md mx-auto p-4 sm:p-6 pb-24">
-        <div id="return-button" className="mt-2 mb-4">
+    <div>
+      <div className="container bg-white w-full max-w-md mx-auto p-4 pb-24">
+        <div id="return-button" className="mt-2 mb-2">
           <button type="button" onClick={() => navigate("/onboarding")}>
-            <p className="text-3xl sm:text-4xl text-gray-700 font-light">←</p>
+            <p className="text-4xl">←</p>
           </button>
         </div>
         <div className="w-full opacity-100">
@@ -191,7 +191,7 @@ const PersonalInfo = () => {
                 : "max-h-0 opacity-0"
             }`}
           >
-            <div className="p-4 pl-0 pt-0 space-y-4">
+            <div className="pl-0 pt-0 space-y-4">
               <div className="Firstname">
                 <label
                   className="font-aeonik font-normal text-base leading-[140%] tracking-normal"

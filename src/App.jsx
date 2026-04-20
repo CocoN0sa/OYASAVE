@@ -13,7 +13,7 @@ import SetNewPassword from "./Components/setNewPassword";
 import PasswordChanged from "./Components/passwordChanged";
 import OnboardingScreen from "./Components/onboardingscreen";
 import SignupScreen, { action as signupAction } from "./Components/signupScreen";
-import AuthCallback from "./Components/auth.callback";
+import AuthCallback, { loader as authCallbackLoader } from "./Components/auth.callback";
 
 function AppLayout() {
   return (
@@ -36,7 +36,6 @@ const router = createBrowserRouter(
         <Route path="personalInfo" element={<PersonalInfo />} />
         <Route path="MyCardsSection" element={<MyCardsSection />} />
         <Route path="carduser" element={<CardUser />} />
-        {/* If 'home' is supposed to have nav after onboarding, place it here, otherwise it's in AuthLayout */}
       </Route>
 
       {/* Routes without Navigation */}
@@ -50,7 +49,7 @@ const router = createBrowserRouter(
         <Route path="passwordChanged" element={<PasswordChanged />} />
         <Route path="onboarding" element={<OnboardingScreen />} />
         <Route path="signup" element={<SignupScreen />} action={signupAction} />
-        <Route path="auth/callback" element={<AuthCallback />} />
+        <Route path="auth/callback" element={<AuthCallback />} loader={authCallbackLoader} />
       </Route>
     </Route>
   )
