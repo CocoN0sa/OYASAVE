@@ -1,12 +1,11 @@
 import { Anchor, Box, Button, Checkbox, Divider, TextInput, PasswordInput, Text } from "@mantine/core";
-import { Form, Link, redirect, useActionData, useNavigation, useNavigate } from "react-router-dom";
+import { Form, Link, redirect, useActionData, useNavigation } from "react-router-dom";
 import { useState } from "react";
 import { useDisclosure } from "@mantine/hooks";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export async function action({ request }) {
   const formData = await request.formData();
-  const email = formData.get("email");
   const password = formData.get("password");
   const confirmPassword = formData.get("confirmPassword");
 
@@ -16,7 +15,7 @@ export async function action({ request }) {
 
   // Supabase removed - demo mode
   // return redirect(`/verifyCode?from=signup&email=${encodeURIComponent(email)}`);
-  return redirect("/PersonalInfo");
+  return redirect("/");
 }
 
 export default function SignupScreen() {
@@ -24,12 +23,10 @@ export default function SignupScreen() {
   const [visibleConfirm, { toggle: toggleConfirm }] = useDisclosure(false);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [termsAccepted, setTermsAccepted] = useState(true);
   
   const actionData = useActionData();
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
-  const navigate = useNavigate();
 
   const handleGoogleSignIn = async () => {
     alert("Google OAuth disabled in demo mode");
@@ -94,7 +91,6 @@ export default function SignupScreen() {
               size="xs"
               color="#44A1A0"
               defaultChecked
-              onChange={(e) => setTermsAccepted(e.currentTarget.checked)}
               className="mt-1!"
               label={
                 <Text className="text-[12px]! md:text-[14px]! text-[#98A2B3]! font-normal! leading-[1.4]! pl-[2px]!">

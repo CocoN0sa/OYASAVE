@@ -1,4 +1,4 @@
-import { redirect } from "react-router";
+
 
 // import { createSupabaseClient } from "../lib/supabase.client";
 
@@ -6,8 +6,6 @@ import { redirect } from "react-router";
 export async function loader({ request }) {
   const url = new URL(request.url);
   const code = url.searchParams.get("code");
-  const next = url.searchParams.get("next") || "/signin";
-   // Where to send user after login
 
   if (code) {
     // const supabase = createSupabaseClient();
