@@ -14,6 +14,12 @@ import PasswordChanged from "./Components/passwordChanged";
 import OnboardingScreen from "./Components/onboardingscreen";
 import SignupScreen, { action as signupAction } from "./Components/signupScreen";
 import AuthCallback, { loader as authCallbackLoader } from "./Components/auth.callback";
+import AutomatedSavings from "./Pages/AutomatedSavings";
+import Dailydebit from "./Pages/Dailydebit";
+import WeeklyDebit from "./Pages/WeeklyDebit";
+import MonthlyDebit from "./Pages/MonthlyDebit";
+import JoinedSuccessful from "./Pages/JoinedSuccessful";
+import MotivationAndReminders from "./Pages/MotivationAndReminders";
 
 function AppLayout() {
   return (
@@ -31,24 +37,30 @@ function AuthLayout() {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
-      {/* Routes with Navigation */}
-      <Route element={<AppLayout />}>
-        <Route index element={<PersonalInfo />} />
-        <Route path="MyCardsSection" element={<MyCardsSection />} />
-        <Route path="carduser" element={<CardUser />} />
-      </Route>
-
-      {/* Routes without Navigation */}
+      {/* Routes without Navigation (Auth / Onboarding) */}
       <Route element={<AuthLayout />}>
+        <Route index element={<OnboardingScreen />} />
         <Route path="home" element={<Home />} />
         <Route path="signin" element={<SigninPage />} action={signinAction} />
         <Route path="forgotPassword" element={<ForgotPassword />} />
         <Route path="verifyCode" element={<VerifyCode />} />
         <Route path="setNewPassword" element={<SetNewPassword />} />
         <Route path="passwordChanged" element={<PasswordChanged />} />
-        <Route path="onboarding" element={<OnboardingScreen />} />
         <Route path="signup" element={<SignupScreen />} action={signupAction} />
         <Route path="auth/callback" element={<AuthCallback />} loader={authCallbackLoader} />
+      </Route>
+
+      {/* Routes with Navigation */}
+      <Route element={<AppLayout />}>
+        <Route path="personal-info" element={<PersonalInfo />} />
+        <Route path="MyCardsSection" element={<MyCardsSection />} />
+        <Route path="carduser" element={<CardUser />} />
+        <Route path="Dailydebit" element={<Dailydebit />} />
+        <Route path="WeeklyDebit" element={<WeeklyDebit />} />
+        <Route path="MonthlyDebit" element={<MonthlyDebit />} />
+        <Route path="AutomatedSavings" element={<AutomatedSavings />} />
+        <Route path="JoinedSuccessful" element={<JoinedSuccessful />} />
+        <Route path="MotivationAndReminders" element={<MotivationAndReminders />} />
       </Route>
     </Route>
   )

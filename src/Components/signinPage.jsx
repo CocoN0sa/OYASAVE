@@ -15,7 +15,7 @@ export async function action({ request }) {
   }
 
   // Demo mode — navigate to PersonalInfo
-  return redirect("/");
+  return redirect("/personal-info");
 }
 
 export default function SigninPage() {

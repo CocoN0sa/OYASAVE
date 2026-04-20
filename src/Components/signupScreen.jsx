@@ -15,7 +15,7 @@ export async function action({ request }) {
 
   // Supabase removed - demo mode
   // return redirect(`/verifyCode?from=signup&email=${encodeURIComponent(email)}`);
-  return redirect("/");
+  return redirect("/personal-info");
 }
 
 export default function SignupScreen() {

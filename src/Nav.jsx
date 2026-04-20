@@ -1,4 +1,3 @@
-import React from "react";
 import {
   House,
   Globe,
@@ -7,6 +6,7 @@ import {
   UserRound,
   TargetIcon,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
@@ -33,12 +33,12 @@ const Nav = () => {
           </span>
         </button>
 
-        <button type="button" className="flex flex-col items-center gap-[8px]">
+        <Link to="/AutomatedSavings" type="button" className="flex flex-col items-center gap-[8px]">
           <PiggyBank size={20} strokeWidth={1.8} className="text-[#A09CAB]" />
           <span className="text-[11px] leading-none text-[#A09CAB]">
             Savings
           </span>
-        </button>
+        </Link>
 
         <button type="button" className="flex flex-col items-center gap-[8px]">
           <UserRound size={20} strokeWidth={1.8} className="text-[#A09CAB]" />
