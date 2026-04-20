@@ -6,7 +6,7 @@ import CardUser from "./Pages/CardUser";
 import Nav from "./Nav";
 
 import Home from "./Components/home";
-import SigninPage from "./Components/signinPage";
+import SigninPage, { action as signinAction } from "./Components/signinPage";
 import ForgotPassword from "./Components/forgotPassword";
 import VerifyCode from "./Components/verifyCode";
 import SetNewPassword from "./Components/setNewPassword";
@@ -33,16 +33,15 @@ const router = createBrowserRouter(
     <Route path="/">
       {/* Routes with Navigation */}
       <Route element={<AppLayout />}>
-        <Route path="personalInfo" element={<PersonalInfo />} />
+        <Route index element={<PersonalInfo />} />
         <Route path="MyCardsSection" element={<MyCardsSection />} />
         <Route path="carduser" element={<CardUser />} />
       </Route>
 
       {/* Routes without Navigation */}
       <Route element={<AuthLayout />}>
-        <Route index element={<Home />} />
         <Route path="home" element={<Home />} />
-        <Route path="signin" element={<SigninPage />} />
+        <Route path="signin" element={<SigninPage />} action={signinAction} />
         <Route path="forgotPassword" element={<ForgotPassword />} />
         <Route path="verifyCode" element={<VerifyCode />} />
         <Route path="setNewPassword" element={<SetNewPassword />} />

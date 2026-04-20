@@ -1,9 +1,7 @@
 import { Anchor, Box, Button, Checkbox, Divider, TextInput, PasswordInput, Text } from "@mantine/core";
-import { Form, Link, redirect, useActionData, useNavigation } from "react-router-dom";
+import { Form, Link, redirect, useActionData, useNavigation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDisclosure } from "@mantine/hooks";
-
-import { createSupabaseClient } from "../lib/supabase.client";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export async function action({ request }) {
@@ -16,21 +14,9 @@ export async function action({ request }) {
     return { error: "Passwords do not match. Please try again." };
   }
 
-  const supabase = createSupabaseClient();
-  const { error } = await supabase.auth.signUp({
-    email,
-    password,
-    options: {
-      emailRedirectTo: `${new URL(request.url).origin}/auth/callback?next=/personalInfo`,
-    },
-  });
-
-  if (error) {
-    console.error("Supabase Signup Error Details:", error);
-    return { error: error.message || "An unexpected error occurred. Please try again or check your configuration." };
-  }
-
-  return redirect(`/verifyCode?from=signup&email=${encodeURIComponent(email)}`);
+  // Supabase removed - demo mode
+  // return redirect(`/verifyCode?from=signup&email=${encodeURIComponent(email)}`);
+  return redirect("/PersonalInfo");
 }
 
 export default function SignupScreen() {
@@ -38,30 +24,15 @@ export default function SignupScreen() {
   const [visibleConfirm, { toggle: toggleConfirm }] = useDisclosure(false);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(true);
   
   const actionData = useActionData();
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
-  const [authError, setAuthError] = useState(null);
+  const navigate = useNavigate();
 
   const handleGoogleSignIn = async () => {
-    try {
-      setAuthError(null);
-      const supabase = createSupabaseClient();
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-        options: {
-          redirectTo: `${window.location.origin}/auth/callback?next=/personalInfo`,
-        },
-      });
-      if (error) {
-        console.error("Google Auth Error:", error);
-        setAuthError(error.message);
-      }
-    } catch (err) {
-      console.error("Supabase Client Error:", err);
-      setAuthError(err.message || "An unexpected error occurred during Google Sign-In.");
-    }
+    alert("Google OAuth disabled in demo mode");
   };
 
   return (
@@ -78,10 +49,6 @@ export default function SignupScreen() {
           </Text>
         )}
         
-        {authError && (
-          <Text className="text-red-500 text-sm mb-4">{authError}</Text>
-        )}
-
         <Form method="post" id="signup-form" className="w-full pb-2">
           <label htmlFor="email" className="block mb-1 text-[14px] md:text-[16px] font-normal text-[#393F4A]!">Email</label>
           <TextInput id="email" name="email" radius="md" placeholder="Enter Email Address" mb={16} w="100%" size="md" required />
@@ -127,6 +94,7 @@ export default function SignupScreen() {
               size="xs"
               color="#44A1A0"
               defaultChecked
+              onChange={(e) => setTermsAccepted(e.currentTarget.checked)}
               className="mt-1!"
               label={
                 <Text className="text-[12px]! md:text-[14px]! text-[#98A2B3]! font-normal! leading-[1.4]! pl-[2px]!">
@@ -142,8 +110,6 @@ export default function SignupScreen() {
               }
             />
           </Box>
-
-
 
           <Button 
             type="submit"

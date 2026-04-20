@@ -2,7 +2,7 @@ import { Box, Button, Group, PinInput, Text } from "@mantine/core";
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router";
 
-import { createSupabaseClient } from "../lib/supabase.client";
+
 
 
 
@@ -38,12 +38,8 @@ export default function VerifyCode() {
     setLoading(true);
     setMessage(null);
 
-    const supabase = createSupabaseClient();
-    const { error } = await supabase.auth.verifyOtp({
-      email,
-      token: code,
-      type: fromSignup ? "signup" : "recovery",
-    });
+    // Supabase removed - demo mode
+    const error = null;
 
     setLoading(false);
 
@@ -64,11 +60,8 @@ export default function VerifyCode() {
   const handleResendCode = async () => {
     if (timeLeft === 0 && email) {
       setMessage("Resending code...");
-      const supabase = createSupabaseClient();
-      const { error } = await supabase.auth.resend({
-        type: fromSignup ? "signup" : "recovery",
-        email,
-      });
+      // Supabase removed - demo mode
+      const error = null;
 
       if (error) {
         setMessage(`Error: ${error.message}`);
