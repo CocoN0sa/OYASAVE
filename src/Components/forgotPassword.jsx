@@ -13,17 +13,11 @@ export default function ForgotPassword() {
     setLoading(true);
     setMessage(null);
 
-    // Supabase removed - demo mode
+    // Demo mode – navigate after a short delay
     setTimeout(() => {
+      setLoading(false);
       navigate(`/verifyCode?from=recovery&email=${encodeURIComponent(email)}`);
     }, 1500);
-
-    setLoading(false);
-    if (error) {
-      setMessage(error.message);
-    } else {
-      navigate(`/verifyCode?from=recovery&email=${encodeURIComponent(email)}`);
-    }
   };
 
   return (

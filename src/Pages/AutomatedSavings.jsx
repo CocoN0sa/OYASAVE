@@ -1,89 +1,72 @@
-import React from "react";
+import { Checkbox, Button } from "@mantine/core";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const AutomatedSavings = () => {
+  const [selectedFrequency, setSelectedFrequency] = useState("Daily");
+
+  const handleSelect = (value) => {
+    setSelectedFrequency(value);
+  };
+
   return (
-    <div className="min-h-screen bg-white">
-      <div className="mx-auto flex min-h-[calc(100vh-4px)] w-full max-w-md flex-col items-center px-4 pb-6 pt-12 sm:px-6 sm:pt-16">
-        <div className="w-full text-[28px] font-bold">Automated Savings</div>
-
-        <div className="mt-4 w-full">
-          <h6 className="font-bold text-[#393F4A]">Add Card</h6>
-          <p className="text-[16px] text-[#98A2B3]">
-            Add your Card for seamless savings
-          </p>
-        </div>
-        <div className="userData mt-5 flex w-full flex-col items-center">
-          <div className="w-full max-w-[342px]">
-            <label htmlFor="" className="text-[16px] text-[#393F4A]">
-              Cardholder Name
-            </label>
-            <input
-              type="text"
-              name=""
-              id=""
-              placeholder="Enter Cardholder Name"
-              className="mt-1 h-[48px] w-full rounded-[12px] border border-[#D0D5DD] px-3 placeholder:text-[14px] placeholder:font-normal placeholder:leading-4 placeholder:text-[#98A2B3]"
-            />
-          </div>
-          <div className="mt-4 w-full max-w-[342px]">
-            <label htmlFor="" className="text-[16px] text-[#393F4A]">
-              Cardholder Number
-            </label>
-            <input
-              type="number"
-              name=""
-              id=""
-              placeholder="Enter Cardholder Number"
-              className="mt-1 h-[48px] w-full rounded-[12px] border border-[#D0D5DD] px-3 placeholder:text-[14px] placeholder:font-normal placeholder:leading-4 placeholder:text-[#98A2B3]"
-            />
-          </div>
-          <div className="mt-4 w-full max-w-[342px]">
-            <label htmlFor="" className="text-[16px] text-[#393F4A]">
-              Expiration Date (MM/YY)
-            </label>
-            <input
-              type="month"
-              name=""
-              id=""
-              placeholder=""
-              className="mt-1 h-[48px] w-full rounded-[12px] border border-[#D0D5DD] px-3 placeholder:text-[14px] placeholder:font-normal placeholder:leading-4 placeholder:text-[#98A2B3]"
-            />
-          </div>
-          <div className="mt-4 w-full max-w-[342px]">
-            <label htmlFor="" className="text-[16px] text-[#393F4A]">
-              CVV
-            </label>
-            <input
-              type="number"
-              name=""
-              id=""
-              placeholder="..."
-              className="mt-1 h-[48px] w-full rounded-[12px] border border-[#D0D5DD] px-3 placeholder:px-3 placeholder:text-[30px] placeholder:leading-4 placeholder:text-[#98A2B3]"
-            />
-          </div>
-
-          <div className="buttons mt-5 flex w-full max-w-[342px] flex-col items-center justify-center">
-            <button
-              type="submit"
-              className="h-[48px] w-full rounded-[12px] border-[#D0D5DD] bg-[#44A1A0] px-3 text-white placeholder:text-[14px] placeholder:font-normal placeholder:leading-4 placeholder:text-[#98A2B3]"
-            >
-              save card
-            </button>
-            <div className="flex justify-center items-center my-4">
-              ______________________ <p className="p-2 pt-4">or</p>{" "}
-              ______________________
-            </div>
-            <button
-              type="submit"
-              className="h-[48px] w-full text-[#98A2B3] rounded-[12px] border-[#D0D5DD] bg-[#EFF1F5] px-3 placeholder:text-[14px] placeholder:font-normal placeholder:leading-4 placeholder:text-[#98A2B3]"
-            >
-              Skip
-            </button>
-          </div>
-        </div>
+    <div className="flex flex-col px-6 py-10 max-w-[400px] mx-auto font-aeonik">
+      {/* Back Arrow */}
+      <div>
+        <Link to="/personal-info">
+          <img src="/arrow.svg" alt="Back" className="w-4 h-2.5" />
+        </Link>
       </div>
+
+      {/* Header */}
+      <div className="mb-10">
+        <h1 className="text-[28px] font-bold leading-[1.1] text-[#393F4A] mt-6">
+          Set Up Automated <br /> Savings
+        </h1>
+        <p className="text-[16px] font-bold text-[#393F4A] mt-6">
+          Select Savings Frequency
+        </p>
+      </div>
+
+      {/* Options */}
+      <div className="flex flex-col gap-6 mt-4 mb-6">
+        {[
+          { label: "Daily", value: "Daily" },
+          { label: "Weekly", value: "Weekly" },
+          { label: "Monthly", value: "Monthly" },
+          { label: "Set Manually", value: "Set Manually" },
+        ].map((option) => (
+          <div 
+            key={option.value} 
+            className="flex items-center gap-4 cursor-pointer"
+            onClick={() => handleSelect(option.value)}
+          >
+            <Checkbox 
+              size="md" 
+              color="#44A1A0" 
+              radius="sm" 
+              checked={selectedFrequency === option.value}
+              onChange={() => handleSelect(option.value)}
+            />
+            <span className={`text-[18px] font-semibold ${selectedFrequency === option.value ? 'text-[#393F4A]' : 'text-[#98A2B3]'}`}>
+              {option.label}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* Continue Button */}
+      <Button 
+        component={Link}
+        to={selectedFrequency === "Weekly" ? "/WeeklyDebit" : selectedFrequency === "Monthly" ? "/MonthlyDebit" : "/Dailydebit"}
+        fullWidth 
+        size="xl" 
+        className="bg-[#44A1A0]! hover:bg-[#3b8c8b]! text-white! rounded-[12px]! font-normal! text-[16px]! h-[48px]!"
+      >
+        Continue
+      </Button>
     </div>
   );
 };
 
-export default AutomatedSavings;
+export default AutomatedSavings

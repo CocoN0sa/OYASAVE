@@ -7,6 +7,7 @@ import { IconAlertCircleFilled, IconCircleCheckFilled } from "@tabler/icons-reac
 
 
 
+
 export default function SetNewPassword() {
   const navigate = useNavigate();
   const [newPassword, setNewPassword] = useState("");

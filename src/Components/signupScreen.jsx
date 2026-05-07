@@ -1,26 +1,21 @@
 import { Anchor, Box, Button, Checkbox, Divider, TextInput, PasswordInput, Text } from "@mantine/core";
-import { Form, Link, Navigate, redirect, useActionData, useNavigation } from "react-router";
+import { Form, Link, redirect, useActionData, useNavigation } from "react-router-dom";
 import { useState } from "react";
 import { useDisclosure } from "@mantine/hooks";
-import { useNavigate } from "react-router-dom";
-
-
-
 
 // eslint-disable-next-line react-refresh/only-export-components
 export async function action({ request }) {
   const formData = await request.formData();
-  const email = formData.get("email");
   const password = formData.get("password");
+  const confirmPassword = formData.get("confirmPassword");
 
-  // Supabase removed - demo mode
-
-  if (error) {
-    console.error("Supabase Signup Error Details:", error);
-    return { error: error.message || "An unexpected error occurred. Please try again or check your configuration." };
+  if (password !== confirmPassword) {
+    return { error: "Passwords do not match. Please try again." };
   }
 
-  return redirect(`/verifyCode?from=signup&email=${encodeURIComponent(email)}`);
+  // Supabase removed - demo mode
+  // return redirect(`/verifyCode?from=signup&email=${encodeURIComponent(email)}`);
+  return redirect("/personal-info");
 }
 
 export default function SignupScreen() {
@@ -28,31 +23,14 @@ export default function SignupScreen() {
   const [visibleConfirm, { toggle: toggleConfirm }] = useDisclosure(false);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [termsAccepted, setTermsAccepted] = useState(true);
   
   const actionData = useActionData();
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
-  const [authError, setAuthError] = useState(null);
-
-  const isFormValid = password && confirmPassword === password && password.length >= 6 && termsAccepted;
 
   const handleGoogleSignIn = async () => {
-    try {
-      setAuthError(null);
-      // Supabase removed - demo mode
-      if (error) {
-        console.error("Google Auth Error:", error);
-        setAuthError(error.message);
-      }
-    } catch (err) {
-      console.error("Supabase Client Error:", err);
-      setAuthError(err.message || "An unexpected error occurred during Google Sign-In.");
-    }
+    alert("Google OAuth disabled in demo mode");
   };
-
-    const navigate = useNavigate();
-
 
   return (
     <div className="flex flex-col justify-center px-6 py-[103px] min-h-dvh md:items-center lg:px-8 font-aeonik">
@@ -68,10 +46,6 @@ export default function SignupScreen() {
           </Text>
         )}
         
-        {authError && (
-          <Text className="text-red-500 text-sm mb-4">{authError}</Text>
-        )}
-
         <Form method="post" id="signup-form" className="w-full pb-2">
           <label htmlFor="email" className="block mb-1 text-[14px] md:text-[16px] font-normal text-[#393F4A]!">Email</label>
           <TextInput id="email" name="email" radius="md" placeholder="Enter Email Address" mb={16} w="100%" size="md" required />
@@ -137,7 +111,6 @@ export default function SignupScreen() {
             type="submit"
             loading={isSubmitting}
             fullWidth 
-            onClick={() => navigate("/Signin")}
             className="bg-[#44A1A0]! hover:bg-[#3b8c8b]! text-white! rounded-[12px]! font-normal! text-[16px]! transition-all! duration-300! ease-out! h-12!"
           >
             Create Account
@@ -159,6 +132,13 @@ export default function SignupScreen() {
           />
           Sign up with Google
         </Button>
+
+        <Text className="text-center! mt-8! text-[#393F4A]! text-[14px]! md:text-[16px]! font-normal!">
+          Already have an account?{" "}
+          <Link to="/signin" className="text-[#44A1A0] font-medium hover:underline">
+            Log in
+          </Link>
+        </Text>
       </Box>
     </div>
   );
