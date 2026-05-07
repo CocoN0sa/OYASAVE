@@ -43,7 +43,6 @@ const PersonalInfo = () => {
   const [uploadDocumentsOpen, setUploadDocumentsOpen] = useState(false);
 
   const [formData, setFormData] = useState(getInitialFormData);
-
   const [uploadedFile, setUploadedFile] = useState(getInitialFileState);
 
   const [personalInfoSaved, setPersonalInfoSaved] = useState(() => {
@@ -85,7 +84,7 @@ const PersonalInfo = () => {
   };
 
   const handleFileChange = (e) => {
-    const file = e.target.files[0];
+    const file = e.target.files?.[0];
     if (file) {
       setUploadedFile(file);
     }
@@ -125,33 +124,26 @@ const PersonalInfo = () => {
   return (
     <div>
       <div className="container bg-white w-full max-w-md mx-auto p-4 pb-24">
-<<<<<<< HEAD
         <div className="flex gap-[50px]">
           <div id="return-button" className="mt-2 mb-2">
             <button type="button" onClick={() => navigate("/MyProfile")}>
               <p className="text-4xl">←</p>
             </button>
           </div>
-=======
-        <div id="return-button" className="mt-2 mb-2">
-          <button type="button" onClick={() => navigate("/onboarding")}>
-            <p className="text-4xl">←</p>
-          </button>
->>>>>>> 8c9e537acc605bc205eeff511fe9c7c2a2ed8ec9
         </div>
-        <div className="w-full opacity-100">
+
+        <div className="w-full h-auto gap-[4px] opacity-100">
           <div className="heading">
-            <h2 className="font-bold text-2xl sm:text-3xl tracking-tight">
+            <h2 className="font-bold text-2xl leading-[140%] tracking-normal">
               Update Personal Info
             </h2>
           </div>
-          <div className="subtext mt-1">
-            <p className="font-normal text-base text-[#98A2B3]">
+          <div className="subtext">
+            <p className="font-normal text-base pt-2 leading-[140%] tracking-normal text-[#98A2B3]">
               KYC & Verification
             </p>
           </div>
         </div>
-
 
         <div className="w-full bg-white rounded-2xl">
           <button
@@ -192,7 +184,6 @@ const PersonalInfo = () => {
             />
           </button>
 
-          {/* Dropdown Content */}
           <div
             className={`transition-all duration-300 overflow-hidden ${
               personalInfoOpen
@@ -218,7 +209,7 @@ const PersonalInfo = () => {
                 />
               </div>
 
-              <div className="middlename">
+              <div className="middlename mt-[-10px]">
                 <label
                   className="font-aeonik font-normal text-base leading-[140%] tracking-normal"
                   htmlFor="middlename"
@@ -235,7 +226,7 @@ const PersonalInfo = () => {
                 />
               </div>
 
-              <div className="lastname">
+              <div className="lastname mt-[-10px]">
                 <label
                   className="font-aeonik font-normal text-base leading-[140%] tracking-normal"
                   htmlFor="lastname"
@@ -251,7 +242,8 @@ const PersonalInfo = () => {
                   className="w-full border rounded-xl px-3 py-2 my-1 border-[#D0D5DD] placeholder-[#98A2B3]"
                 />
               </div>
-              <div className="gender">
+
+              <div className="gender mt-[-10px]">
                 <label
                   className="font-aeonik font-normal text-base leading-[140%] tracking-normal"
                   htmlFor="gender"
@@ -279,7 +271,7 @@ const PersonalInfo = () => {
                 </select>
               </div>
 
-              <div className="date">
+              <div className="date mt-[-10px]">
                 <label
                   className="font-aeonik font-normal text-base leading-[140%] tracking-normal"
                   htmlFor="date"
@@ -296,7 +288,7 @@ const PersonalInfo = () => {
                 />
               </div>
 
-              <div className="phonenumber">
+              <div className="phonenumber mt-[-10px]">
                 <label
                   className="font-aeonik font-normal text-base leading-[140%] tracking-normal"
                   htmlFor="phonenumber"
@@ -324,7 +316,6 @@ const PersonalInfo = () => {
         </div>
 
         <div className="w-full h-auto bg-white rounded-2xl p mt-3">
-          {/* Header */}
           <button
             onClick={() => setUploadDocumentsOpen(!uploadDocumentsOpen)}
             className="w-full flex items-center justify-between p-3 pl-0 text-left"
@@ -363,7 +354,6 @@ const PersonalInfo = () => {
             />
           </button>
 
-          {/* Dropdown Content */}
           <div
             className={`transition-all duration-300 overflow-hidden ${
               uploadDocumentsOpen
@@ -390,6 +380,7 @@ const PersonalInfo = () => {
                 </span>
               )}
             </label>
+
             <button
               onClick={handleUploadDocumentsSave}
               className="w-full bg-teal-600 text-white my-5 py-2 rounded-xl hover:bg-teal-700 transition"

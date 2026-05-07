@@ -22,7 +22,6 @@ import Dailydebit from "./Pages/Dailydebit";
 import WeeklyDebit from "./Pages/WeeklyDebit";
 import MonthlyDebit from "./Pages/MonthlyDebit";
 import JoinedSuccessful from "./Pages/JoinedSuccessful";
-import MotivationAndReminders from "./Pages/MotivationAndReminders";
 
 function AppLayout() {
   return (
@@ -42,9 +41,23 @@ const router = createBrowserRouter(
     <Route path="/">
       {/* Routes with Navigation */}
       <Route element={<AppLayout />}>
+        <Route path="home" element={<Home />} />
+        {/* <Route path="Goals" element={} /> */}
+        <Route path="Groups" element={<JoinedSuccessful />} />
+        <Route path="MyProfile" element={<MyProfile />} />
+        <Route path="EditProfile" element={<EditProfile />} />
+        <Route path="Notifications" element={<Notifications />} />
         <Route path="PersonalInfo" element={<PersonalInfo />} />
         <Route path="MyCardsSection" element={<MyCardsSection />} />
         <Route path="carduser" element={<CardUser />} />
+        <Route path="personal-info" element={<PersonalInfo />} />
+        <Route path="my-profile" element={<MyProfile />} />
+        <Route path="MyCardsSection" element={<MyCardsSection />} />
+        <Route path="carduser" element={<CardUser />} />
+        <Route path="Dailydebit" element={<Dailydebit />} />
+        <Route path="WeeklyDebit" element={<WeeklyDebit />} />
+        <Route path="MonthlyDebit" element={<MonthlyDebit />} />
+        <Route path="AutomatedSavings" element={<AutomatedSavings />} />
       </Route>
 
       {/* Routes without Navigation */}
@@ -57,21 +70,14 @@ const router = createBrowserRouter(
         <Route path="setNewPassword" element={<SetNewPassword />} />
         <Route path="passwordChanged" element={<PasswordChanged />} />
         <Route path="signup" element={<SignupScreen />} action={signupAction} />
-        <Route path="auth/callback" element={<AuthCallback />} loader={authCallbackLoader} />
+        <Route
+          path="auth/callback"
+          element={<AuthCallback />}
+          loader={authCallbackLoader}
+        />
       </Route>
-
-      {/* Routes with Navigation */}
-      <Route element={<AppLayout />}>
-        <Route path="personal-info" element={<PersonalInfo />} />
-        <Route path="MyCardsSection" element={<MyCardsSection />} />
-        <Route path="carduser" element={<CardUser />} />
-        <Route path="Dailydebit" element={<Dailydebit />} />
-        <Route path="WeeklyDebit" element={<WeeklyDebit />} />
-        <Route path="MonthlyDebit" element={<MonthlyDebit />} />
-        <Route path="AutomatedSavings" element={<AutomatedSavings />} />
-      </Route>
-    </Route>
-  )
+    </Route>,
+  ),
 );
 
 function App() {
