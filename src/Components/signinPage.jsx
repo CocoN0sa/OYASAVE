@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 
 
-// Auth removed (no Supabase)
-// eslint-disable-next-line react-refresh/only-export-components
 export async function action({ request }) {
   return { error: "Demo mode - auth disabled" };
 }
@@ -70,7 +68,7 @@ export default function SigninPage() {
         Forgot Password?
       </Anchor>
         </Box>
-        <Button type="submit" form="signin-form" fullWidth mt="xl" loading={isSubmitting} onClick={() => navigate("/PersonalInfo")} className="bg-[#44A1A0]! text-white! rounded-[12px]! font-normal! text-[16px]! transition-all! duration-300! ease-out! h-12!">Sign In</Button>
+        <Button type="submit" form="signin-form" fullWidth mt="xl" loading={isSubmitting} onClick={() => navigate("/MyProfile")} className="bg-[#44A1A0]! text-white! rounded-[12px]! font-normal! text-[16px]! transition-all! duration-300! ease-out! h-12!">Sign In</Button>
 
         <Divider my="xs" label="Or" labelPosition="center" className="pt-6!" />
 

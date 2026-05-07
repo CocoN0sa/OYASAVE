@@ -127,13 +127,8 @@ const PersonalInfo = () => {
       <div className="container bg-white w-full max-w-md mx-auto p-4 pb-24">
         <div className="flex gap-[50px]">
           <div id="return-button" className="mt-2 mb-2">
-            <button type="button" onClick={() => navigate("/onboarding")}>
+            <button type="button" onClick={() => navigate("/MyProfile")}>
               <p className="text-4xl">←</p>
-            </button>
-          </div>
-          <div id="return-button" className="mt-2 mb-2">
-            <button type="button" onClick={() => navigate("/MyCardsSection")}>
-              <p className="text-4xl">→</p>
             </button>
           </div>
         </div>

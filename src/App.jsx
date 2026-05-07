@@ -1,8 +1,11 @@
 import { createBrowserRouter, RouterProvider, Outlet, Route, createRoutesFromElements } from "react-router-dom";
 import { MantineProvider } from "@mantine/core";
 import PersonalInfo from "./Components/PersonalInfo";
+import MyProfile from "./Components/MyProfile";
 import MyCardsSection from "./Components/MyCardsSection";
 import CardUser from "./Pages/CardUser";
+import EditProfile from "./Pages/EditProfile";
+import Notifications from "./Pages/Notifications";
 import Nav from "./Nav";
 
 import Home from "./Components/home";
@@ -36,6 +39,8 @@ const router = createBrowserRouter(
     <Route path="/">
       {/* Routes with Navigation */}
       <Route element={<AppLayout />}>
+        <Route path="MyProfile" element={<MyProfile />} />
+        <Route path="EditProfile" element={<EditProfile />} />
         <Route path="PersonalInfo" element={<PersonalInfo />} />
         <Route path="MyCardsSection" element={<MyCardsSection />} />
         <Route path="carduser" element={<CardUser />} />
@@ -55,6 +60,7 @@ const router = createBrowserRouter(
         <Route path="SigninWelcome" element={<SigninWelcome />} />
         <Route path="Experience" element={<Experience />} />
         <Route path="AutomatedSavings" element={<AutomatedSavings />} />
+        <Route path="Notifications" element={<Notifications />} />
       </Route>
     </Route>
   )
