@@ -37,7 +37,7 @@ const Nav = () => {
   return (
     <div>
       <nav className="fixed pb-6 pt-2 bottom-0 left-0 right-0 z-50 flex w-full items-center justify-between shadow-[0_-2px_12px_rgba(0,0,0,0.08)] bg-white px-7 py-1 max-w-md mx-auto">
-        {navItems.map(({ label, icon: Icon, path, matchPaths }) => {
+        {navItems.map(({ label, icon, path, matchPaths }) => {
           const isActive = (matchPaths || [path]).includes(location.pathname);
           const itemColor = isActive ? "#44A1A0" : "#A09CAB";
 
@@ -48,7 +48,11 @@ const Nav = () => {
               onClick={() => navigate(path)}
               className="flex flex-col items-center gap-[8px]"
             >
-              <Icon size={20} strokeWidth={1.8} style={{ color: itemColor }} />
+              {React.createElement(icon, {
+                size: 20,
+                strokeWidth: 1.8,
+                style: { color: itemColor },
+              })}
               <span
                 className="text-[11px] leading-none"
                 style={{

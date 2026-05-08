@@ -22,6 +22,8 @@ import Dailydebit from "./Pages/Dailydebit";
 import WeeklyDebit from "./Pages/WeeklyDebit";
 import MonthlyDebit from "./Pages/MonthlyDebit";
 import JoinedSuccessful from "./Pages/JoinedSuccessful";
+import Experience from "./Pages/Experience";
+import Automatic from "./Pages/Automatic";  
 
 function AppLayout() {
   return (
@@ -42,7 +44,7 @@ const router = createBrowserRouter(
       {/* Routes with Navigation */}
       <Route element={<AppLayout />}>
         <Route path="home" element={<Home />} />
-        {/* <Route path="Goals" element={} /> */}
+        <Route path="Goals" element={<Experience />} />
         <Route path="Groups" element={<JoinedSuccessful />} />
         <Route path="MyProfile" element={<MyProfile />} />
         <Route path="EditProfile" element={<EditProfile />} />
@@ -51,19 +53,16 @@ const router = createBrowserRouter(
         <Route path="MyCardsSection" element={<MyCardsSection />} />
         <Route path="carduser" element={<CardUser />} />
         <Route path="personal-info" element={<PersonalInfo />} />
-        <Route path="my-profile" element={<MyProfile />} />
-        <Route path="MyCardsSection" element={<MyCardsSection />} />
-        <Route path="carduser" element={<CardUser />} />
         <Route path="Dailydebit" element={<Dailydebit />} />
         <Route path="WeeklyDebit" element={<WeeklyDebit />} />
         <Route path="MonthlyDebit" element={<MonthlyDebit />} />
         <Route path="AutomatedSavings" element={<AutomatedSavings />} />
+        <Route path="Automatic" element={<Automatic />} />
       </Route>
 
       {/* Routes without Navigation */}
       <Route element={<AuthLayout />}>
         <Route index element={<OnboardingScreen />} />
-        <Route path="home" element={<Home />} />
         <Route path="signin" element={<SigninPage />} action={signinAction} />
         <Route path="forgotPassword" element={<ForgotPassword />} />
         <Route path="verifyCode" element={<VerifyCode />} />

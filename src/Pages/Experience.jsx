@@ -43,10 +43,10 @@ const Experience = () => {
           ))}
         </div>
 
-        <div className="mt-auto flex justify-center pt-8">
+        <div className="mt-3 flex justify-center pt-8">
           <button
             type="button"
-            onClick={() => navigate("/AutomatedSavings")}
+            onClick={() => navigate("/Automatic")}
             className="h-12 w-full rounded-[12px] bg-[#44A1A0] px-4 text-white"
           >
             Continue
