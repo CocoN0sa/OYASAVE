@@ -1,0 +1,17 @@
+export const ResetPasswordEmail = () => {
+  return (
+    <>
+      <h2>Reset Password</h2>
+      <p>Follow this link to reset the password for your user:</p>
+      <p>
+        <a
+          href={
+            "{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=recovery&next={{ .RedirectTo }}"
+          }
+        >
+          Reset Password
+        </a>
+      </p>
+    </>
+  );
+};

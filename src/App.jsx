@@ -1,8 +1,11 @@
 import { createBrowserRouter, RouterProvider, Outlet, Route, createRoutesFromElements } from "react-router-dom";
 import { MantineProvider } from "@mantine/core";
 import PersonalInfo from "./Components/PersonalInfo";
+import MyProfile from "./Components/MyProfile";
 import MyCardsSection from "./Components/MyCardsSection";
 import CardUser from "./Pages/CardUser";
+import EditProfile from "./Pages/EditProfile";
+import Notifications from "./Pages/Notifications";
 import Nav from "./Nav";
 
 import Home from "./Components/home";
@@ -14,9 +17,11 @@ import PasswordChanged from "./Components/passwordChanged";
 import OnboardingScreen from "./Components/onboardingscreen";
 import SignupScreen, { action as signupAction } from "./Components/signupScreen";
 import AuthCallback, { loader as authCallbackLoader } from "./Components/auth.callback";
-import SigninWelcome from "./Components/SigninWelcome";
-import Experience from "./Pages/Experience";
 import AutomatedSavings from "./Pages/AutomatedSavings";
+import Dailydebit from "./Pages/Dailydebit";
+import WeeklyDebit from "./Pages/WeeklyDebit";
+import MonthlyDebit from "./Pages/MonthlyDebit";
+import JoinedSuccessful from "./Pages/JoinedSuccessful";
 
 function AppLayout() {
   return (
@@ -36,28 +41,43 @@ const router = createBrowserRouter(
     <Route path="/">
       {/* Routes with Navigation */}
       <Route element={<AppLayout />}>
-        <Route index element={<PersonalInfo />} />
+        <Route path="home" element={<Home />} />
+        {/* <Route path="Goals" element={} /> */}
+        <Route path="Groups" element={<JoinedSuccessful />} />
+        <Route path="MyProfile" element={<MyProfile />} />
+        <Route path="EditProfile" element={<EditProfile />} />
+        <Route path="Notifications" element={<Notifications />} />
+        <Route path="PersonalInfo" element={<PersonalInfo />} />
         <Route path="MyCardsSection" element={<MyCardsSection />} />
         <Route path="carduser" element={<CardUser />} />
+        <Route path="personal-info" element={<PersonalInfo />} />
+        <Route path="my-profile" element={<MyProfile />} />
+        <Route path="MyCardsSection" element={<MyCardsSection />} />
+        <Route path="carduser" element={<CardUser />} />
+        <Route path="Dailydebit" element={<Dailydebit />} />
+        <Route path="WeeklyDebit" element={<WeeklyDebit />} />
+        <Route path="MonthlyDebit" element={<MonthlyDebit />} />
+        <Route path="AutomatedSavings" element={<AutomatedSavings />} />
       </Route>
 
       {/* Routes without Navigation */}
       <Route element={<AuthLayout />}>
+        <Route index element={<OnboardingScreen />} />
         <Route path="home" element={<Home />} />
         <Route path="signin" element={<SigninPage />} action={signinAction} />
         <Route path="forgotPassword" element={<ForgotPassword />} />
         <Route path="verifyCode" element={<VerifyCode />} />
         <Route path="setNewPassword" element={<SetNewPassword />} />
         <Route path="passwordChanged" element={<PasswordChanged />} />
-        <Route path="onboarding" element={<OnboardingScreen />} />
         <Route path="signup" element={<SignupScreen />} action={signupAction} />
-        <Route path="auth/callback" element={<AuthCallback />} loader={authCallbackLoader} />
-        <Route path="SigninWelcome" element={<SigninWelcome />} />
-        <Route path="Experience" element={<Experience />} />
-        <Route path="AutomatedSavings" element={<AutomatedSavings />} />
+        <Route
+          path="auth/callback"
+          element={<AuthCallback />}
+          loader={authCallbackLoader}
+        />
       </Route>
-    </Route>
-  )
+    </Route>,
+  ),
 );
 
 function App() {
