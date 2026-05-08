@@ -24,6 +24,7 @@ import MonthlyDebit from "./Pages/MonthlyDebit";
 import JoinedSuccessful from "./Pages/JoinedSuccessful";
 import Experience from "./Pages/Experience";
 import Automatic from "./Pages/Automatic";  
+import CardSaved from "./Pages/CardSaved";
 
 function AppLayout() {
   return (
@@ -58,6 +59,7 @@ const router = createBrowserRouter(
         <Route path="MonthlyDebit" element={<MonthlyDebit />} />
         <Route path="AutomatedSavings" element={<AutomatedSavings />} />
         <Route path="Automatic" element={<Automatic />} />
+        <Route path="CardSaved" element={<CardSaved />} />
       </Route>
 
       {/* Routes without Navigation */}
@@ -68,6 +70,7 @@ const router = createBrowserRouter(
         <Route path="verifyCode" element={<VerifyCode />} />
         <Route path="setNewPassword" element={<SetNewPassword />} />
         <Route path="passwordChanged" element={<PasswordChanged />} />
+        <Route path="experience" element={<Experience />} />
         <Route path="signup" element={<SignupScreen />} action={signupAction} />
         <Route
           path="auth/callback"

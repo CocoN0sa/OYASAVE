@@ -1,9 +1,20 @@
 import React from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import CardSaved from "./CardSaved";
 
 const Automatic = () => {
+  const navigate = useNavigate();
+
   return (
     <main className="flex min-h-screen justify-center bg-white">
       <div className="flex min-h-screen w-full max-w-md flex-col px-4 pb-28 pt-10 sm:px-6 sm:pt-14">
+        <button
+          type="button"
+          onClick={() => navigate("/Experience")}
+          className="self-start"
+        >
+          <p className="text-4xl text-[#44A1A0]">←</p>
+        </button>
         <h1 className="w-full text-[26px] font-bold leading-tight text-[#393F4A] sm:text-[28px]">
           Automated Savings
         </h1>
@@ -17,7 +28,10 @@ const Automatic = () => {
 
         <form className="mt-5 flex w-full flex-1 flex-col">
           <div className="w-full">
-            <label htmlFor="cardholder-name" className="text-[16px] text-[#393F4A]">
+            <label
+              htmlFor="cardholder-name"
+              className="text-[16px] text-[#393F4A]"
+            >
               Cardholder Name
             </label>
             <input
@@ -44,7 +58,10 @@ const Automatic = () => {
           </div>
 
           <div className="mt-4 w-full">
-            <label htmlFor="expiration-date" className="text-[16px] text-[#393F4A]">
+            <label
+              htmlFor="expiration-date"
+              className="text-[16px] text-[#393F4A]"
+            >
               Expiration Date (MM/YY)
             </label>
             <input
@@ -74,6 +91,7 @@ const Automatic = () => {
             <button
               type="submit"
               className="h-[48px] w-full rounded-[12px] border border-[#44A1A0] bg-[#44A1A0] px-3 text-[16px] text-white"
+              onClick={() => navigate("/CardSaved")}
             >
               Save card
             </button>
