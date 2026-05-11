@@ -16,8 +16,7 @@ export async function action({ request }) {
     return { error: "Please fill in all fields." };
   }
 
-  // Demo mode - navigate to PersonalInfo
-  return redirect("/personal-info");
+  return redirect("/home");
 }
 
 export default function SigninPage() {
@@ -110,7 +109,7 @@ export default function SigninPage() {
             fullWidth
             mt="lg"
             loading={isSubmitting}
-            onClick={() => navigate("/MyProfile")}
+
             className="bg-[#44A1A0]! text-white! rounded-[12px]! font-normal! text-[16px]! transition-all! duration-300! ease-out! h-12!"
           >
             Sign in

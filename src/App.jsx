@@ -22,9 +22,13 @@ import Dailydebit from "./Pages/Dailydebit";
 import WeeklyDebit from "./Pages/WeeklyDebit";
 import MonthlyDebit from "./Pages/MonthlyDebit";
 import JoinedSuccessful from "./Pages/JoinedSuccessful";
+import Groups from "./Pages/Groups";
+import CreateGroup from "./Pages/CreateGroup";
+import ExploreGroup from "./Pages/ExploreGroup";
 import Experience from "./Pages/Experience";
 import Automatic from "./Pages/Automatic";  
 import CardSaved from "./Pages/CardSaved";
+import GroupDashboard from "./Pages/GroupDashboard";
 
 function AppLayout() {
   return (
@@ -46,7 +50,7 @@ const router = createBrowserRouter(
       <Route element={<AppLayout />}>
         <Route path="home" element={<Home />} />
         <Route path="Goals" element={<Experience />} />
-        <Route path="Groups" element={<JoinedSuccessful />} />
+        <Route path="Groups" element={<Groups />} />
         <Route path="MyProfile" element={<MyProfile />} />
         <Route path="EditProfile" element={<EditProfile />} />
         <Route path="Notifications" element={<Notifications />} />
@@ -60,6 +64,7 @@ const router = createBrowserRouter(
         <Route path="AutomatedSavings" element={<AutomatedSavings />} />
         <Route path="Automatic" element={<Automatic />} />
         <Route path="CardSaved" element={<CardSaved />} />
+        <Route path="GroupDashboard" element={<GroupDashboard />} />
       </Route>
 
       {/* Routes without Navigation */}
@@ -71,6 +76,8 @@ const router = createBrowserRouter(
         <Route path="setNewPassword" element={<SetNewPassword />} />
         <Route path="passwordChanged" element={<PasswordChanged />} />
         <Route path="experience" element={<Experience />} />
+        <Route path="CreateGroup" element={<CreateGroup />} />
+        <Route path="ExploreGroup" element={<ExploreGroup />} />
         <Route path="signup" element={<SignupScreen />} action={signupAction} />
         <Route
           path="auth/callback"

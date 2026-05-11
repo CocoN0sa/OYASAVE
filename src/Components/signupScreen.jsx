@@ -15,7 +15,7 @@ export async function action({ request }) {
   }
 
 
-  return redirect("/personal-info");
+  return redirect("/home");
 }
 
 export default function SignupScreen() {
@@ -144,7 +144,7 @@ export default function SignupScreen() {
             loading={isSubmitting}
             fullWidth
             className="bg-[#44A1A0]! hover:bg-[#3b8c8b]! text-white! rounded-[12px]! font-normal! text-[16px]! transition-all! duration-300! ease-out! h-12!"
-            onClick={() => navigate("/SignIn")}
+
           >
             Create Account
           </Button>
