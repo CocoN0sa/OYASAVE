@@ -244,6 +244,7 @@ function Screen2({ onBack, onAddCard, onCreateGroup }) {
 
 // Screen 3: Add Card
 function Screen3({ onBack, onSave }) {
+  const [expiry, setExpiry] = useState("");
   return (
     <div className="flex flex-col h-full">
       <div className="px-5 pt-4"><BackArrow onClick={onBack} /></div>
@@ -258,10 +259,17 @@ function Screen3({ onBack, onSave }) {
         <InputField placeholder="Enter Cardholder Number" />
 
         <Label>Expiration Date (MM/YY)</Label>
-        <div className="relative">
-          <InputField placeholder="Enter Expiration Date (MM/YY)" />
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"><CalendarIcon /></span>
-        </div>
+        <input
+          className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 placeholder-gray-300 focus:outline-none focus:border-gray-300 bg-white"
+          placeholder="MM/YY"
+          inputMode="numeric"
+          maxLength={5}
+          value={expiry}
+          onChange={e => {
+            const raw = e.target.value.replace(/\D/g, "").slice(0, 4);
+            setExpiry(raw.length > 2 ? raw.slice(0, 2) + "/" + raw.slice(2) : raw);
+          }}
+        />
 
         <div className="flex items-center gap-2 mt-4 mb-1.5">
           <span className="text-sm font-medium text-gray-700">CVV</span>

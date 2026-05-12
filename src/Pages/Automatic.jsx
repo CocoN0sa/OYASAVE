@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import CardSaved from "./CardSaved";
 
 const Automatic = () => {
   const navigate = useNavigate();
+  const [expiry, setExpiry] = useState("");
 
   return (
     <main className="flex min-h-screen justify-center bg-white">
@@ -65,9 +66,17 @@ const Automatic = () => {
               Expiration Date (MM/YY)
             </label>
             <input
-              type="month"
+              type="text"
               id="expiration-date"
               name="expirationDate"
+              inputMode="numeric"
+              placeholder="MM/YY"
+              maxLength={5}
+              value={expiry}
+              onChange={e => {
+                const raw = e.target.value.replace(/\D/g, "").slice(0, 4);
+                setExpiry(raw.length > 2 ? raw.slice(0, 2) + "/" + raw.slice(2) : raw);
+              }}
               className="mt-1 h-[48px] w-full rounded-[12px] border border-[#D0D5DD] px-3 placeholder:text-[14px] placeholder:font-normal placeholder:leading-4 placeholder:text-[#98A2B3]"
             />
           </div>
