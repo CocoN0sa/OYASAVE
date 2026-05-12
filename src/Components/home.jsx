@@ -31,9 +31,9 @@ export default function FinanceApp() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex justify-center items-start min-h-screen bg-gray-100 pt-8 pb-12 px-4">
+    <div className="flex mb-15 justify-center items-start min-h-screen bg-gray-200">
       <div
-        className="w-full max-w-sm bg-white rounded-3xl overflow-hidden shadow-2xl"
+        className="w-full max-w-md min-h-screen bg-white overflow-y-auto"
         style={{ fontFamily: "'DM Sans', sans-serif" }}
       >
 
