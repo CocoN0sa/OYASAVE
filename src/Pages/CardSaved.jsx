@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { IconCheck } from "@tabler/icons-react";
-import img18 from "../imgs/image 18.png"
+import img18 from "../imgs/image 18.png";
 
 export default function CardSaved() {
   return (
@@ -18,7 +17,7 @@ export default function CardSaved() {
           </p>
 
           <Link
-            to=""
+            to="/almostdone"
             className="mt-7 flex h-[46px] w-full items-center justify-center rounded-[8px] bg-[#44A1A0] text-[16px] font-normal text-white"
           >
             Continue
