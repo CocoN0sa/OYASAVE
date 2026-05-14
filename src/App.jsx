@@ -1,4 +1,10 @@
-import { createBrowserRouter, RouterProvider, Outlet, Route, createRoutesFromElements } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  Route,
+  createRoutesFromElements,
+} from "react-router-dom";
 import { MantineProvider } from "@mantine/core";
 import PersonalInfo from "./Components/PersonalInfo";
 import MyProfile from "./Components/MyProfile";
@@ -15,8 +21,12 @@ import VerifyCode from "./Components/verifyCode";
 import SetNewPassword from "./Components/setNewPassword";
 import PasswordChanged from "./Components/passwordChanged";
 import OnboardingScreen from "./Components/onboardingscreen";
-import SignupScreen, { action as signupAction } from "./Components/signupScreen";
-import AuthCallback, { loader as authCallbackLoader } from "./Components/auth.callback";
+import SignupScreen, {
+  action as signupAction,
+} from "./Components/signupScreen";
+import AuthCallback, {
+  loader as authCallbackLoader,
+} from "./Components/auth.callback";
 import AutomatedSavings from "./Pages/AutomatedSavings";
 import Dailydebit from "./Pages/Dailydebit";
 import WeeklyDebit from "./Pages/WeeklyDebit";
@@ -26,7 +36,10 @@ import Groups from "./Pages/Groups";
 import CreateGroup from "./Pages/CreateGroup";
 import ExploreGroup from "./Pages/ExploreGroup";
 import Experience from "./Pages/Experience";
-import Automatic from "./Pages/Automatic";  
+import ActiveExperience from "./Pages/ActiveExperience";
+import AlmostDone from "./Pages/AlmostDone";
+import AllSet from "./Pages/AllSet";
+import Automatic from "./Pages/Automatic";
 import CardSaved from "./Pages/CardSaved";
 import GroupDashboard from "./Pages/GroupDashboard";
 
@@ -63,6 +76,7 @@ const router = createBrowserRouter(
         <Route path="MonthlyDebit" element={<MonthlyDebit />} />
         <Route path="AutomatedSavings" element={<AutomatedSavings />} />
         <Route path="Automatic" element={<Automatic />} />
+        <Route path="active-experience" element={<ActiveExperience />} />
         <Route path="CardSaved" element={<CardSaved />} />
         <Route path="GroupDashboard" element={<GroupDashboard />} />
       </Route>
@@ -76,6 +90,8 @@ const router = createBrowserRouter(
         <Route path="setNewPassword" element={<SetNewPassword />} />
         <Route path="passwordChanged" element={<PasswordChanged />} />
         <Route path="experience" element={<Experience />} />
+        <Route path="almostdone" element={<AlmostDone />} />
+        <Route path="allset" element={<AllSet />} />
         <Route path="CreateGroup" element={<CreateGroup />} />
         <Route path="ExploreGroup" element={<ExploreGroup />} />
         <Route path="signup" element={<SignupScreen />} action={signupAction} />
