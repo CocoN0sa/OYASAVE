@@ -1,5 +1,20 @@
-import { Anchor, Box, Button, Checkbox, Divider, TextInput, PasswordInput, Text } from "@mantine/core";
-import { Form, Link, redirect, useActionData, useNavigation } from "react-router-dom";
+import {
+  Anchor,
+  Box,
+  Button,
+  Checkbox,
+  Divider,
+  TextInput,
+  PasswordInput,
+  Text,
+} from "@mantine/core";
+import {
+  Form,
+  Link,
+  redirect,
+  useActionData,
+  useNavigation,
+} from "react-router-dom";
 import { useState } from "react";
 import { useDisclosure } from "@mantine/hooks";
 import { useNavigate } from "react-router-dom";
@@ -14,8 +29,7 @@ export async function action({ request }) {
     return { error: "Passwords do not match. Please try again." };
   }
 
-
-  return redirect("/home");
+  return redirect("/signin-welcome");
 }
 
 export default function SignupScreen() {
@@ -23,7 +37,7 @@ export default function SignupScreen() {
   const [visibleConfirm, { toggle: toggleConfirm }] = useDisclosure(false);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  
+
   const actionData = useActionData();
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
@@ -31,8 +45,7 @@ export default function SignupScreen() {
   const handleGoogleSignIn = async () => {
     alert("Google OAuth disabled in demo mode");
   };
-    const navigate = useNavigate();
-
+  const navigate = useNavigate();
 
   return (
     <div className="flex flex-col justify-center px-6 py-[103px] min-h-dvh md:items-center lg:px-8 font-aeonik">
@@ -144,7 +157,6 @@ export default function SignupScreen() {
             loading={isSubmitting}
             fullWidth
             className="bg-[#44A1A0]! hover:bg-[#3b8c8b]! text-white! rounded-[12px]! font-normal! text-[16px]! transition-all! duration-300! ease-out! h-12!"
-
           >
             Create Account
           </Button>

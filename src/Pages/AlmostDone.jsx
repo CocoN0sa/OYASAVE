@@ -27,7 +27,7 @@ export default function AlmostDone() {
 
           <button
             type="button"
-            onClick={() => navigate("/CardSaved")}
+            onClick={() => navigate("/personal-info")}
             className="mt-10 h-[46px] w-full rounded-[12px] bg-[#44A1A0] text-[16px] font-medium text-white"
           >
             Fill in personal information

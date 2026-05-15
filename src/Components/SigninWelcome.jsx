@@ -23,15 +23,15 @@ const SigninWelcome = () => {
             John Doe
           </div>
           <div className="mt-3 text-center text-[14px] leading-6 text-[#6C7280] sm:text-[16px]">
-            Select features you are most interested in on <br /> the next page to
-            personalize your savings <br /> experience
+            Select features you are most interested in on <br /> the next page
+            to personalize your savings <br /> experience
           </div>
         </div>
 
         <div className="flex justify-center pt-8">
           <button
             type="button"
-            onClick={() => navigate("/Experience")}
+            onClick={() => navigate("/experience")}
             className="h-12 w-full rounded-[12px] bg-[#44A1A0] px-4 text-white"
           >
             Next

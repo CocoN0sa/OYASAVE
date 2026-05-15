@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { MantineProvider } from "@mantine/core";
 import PersonalInfo from "./Components/PersonalInfo";
+import PersonalInfoPage from "./Pages/PersonalInfo";
 import MyProfile from "./Components/MyProfile";
 import MyCardsSection from "./Components/MyCardsSection";
 import CardUser from "./Pages/CardUser";
@@ -24,6 +25,7 @@ import OnboardingScreen from "./Components/onboardingscreen";
 import SignupScreen, {
   action as signupAction,
 } from "./Components/signupScreen";
+import SigninWelcome from "./Components/SigninWelcome";
 import AuthCallback, {
   loader as authCallbackLoader,
 } from "./Components/auth.callback";
@@ -42,6 +44,7 @@ import AllSet from "./Pages/AllSet";
 import Automatic from "./Pages/Automatic";
 import CardSaved from "./Pages/CardSaved";
 import GroupDashboard from "./Pages/GroupDashboard";
+import UploadDocument from "./Pages/UploadDocument";
 
 function AppLayout() {
   return (
@@ -62,7 +65,6 @@ const router = createBrowserRouter(
       {/* Routes with Navigation */}
       <Route element={<AppLayout />}>
         <Route path="home" element={<Home />} />
-        <Route path="Goals" element={<Experience />} />
         <Route path="Groups" element={<Groups />} />
         <Route path="MyProfile" element={<MyProfile />} />
         <Route path="EditProfile" element={<EditProfile />} />
@@ -70,7 +72,6 @@ const router = createBrowserRouter(
         <Route path="PersonalInfo" element={<PersonalInfo />} />
         <Route path="MyCardsSection" element={<MyCardsSection />} />
         <Route path="carduser" element={<CardUser />} />
-        <Route path="personal-info" element={<PersonalInfo />} />
         <Route path="Dailydebit" element={<Dailydebit />} />
         <Route path="WeeklyDebit" element={<WeeklyDebit />} />
         <Route path="MonthlyDebit" element={<MonthlyDebit />} />
@@ -90,7 +91,10 @@ const router = createBrowserRouter(
         <Route path="setNewPassword" element={<SetNewPassword />} />
         <Route path="passwordChanged" element={<PasswordChanged />} />
         <Route path="experience" element={<Experience />} />
+        <Route path="signin-welcome" element={<SigninWelcome />} />
         <Route path="almostdone" element={<AlmostDone />} />
+        <Route path="personal-info" element={<PersonalInfoPage />} />
+        <Route path="upload-documents" element={<UploadDocument />} />
         <Route path="allset" element={<AllSet />} />
         <Route path="CreateGroup" element={<CreateGroup />} />
         <Route path="ExploreGroup" element={<ExploreGroup />} />

@@ -4,8 +4,8 @@ import {
   House,
   UsersRound,
   PiggyBank,
-  UserRound,
   TargetIcon,
+  UserRound,
 } from "lucide-react";
 
 const Nav = () => {
