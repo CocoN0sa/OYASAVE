@@ -44,11 +44,7 @@ import AllSet from "./Pages/AllSet";
 import Automatic from "./Pages/Automatic";
 import CardSaved from "./Pages/CardSaved";
 import GroupDashboard from "./Pages/GroupDashboard";
-<<<<<<< HEAD
 import UploadDocument from "./Pages/UploadDocument";
-=======
-import Goals from "./Pages/Goals";
->>>>>>> a8c938e36e45182ae735b662676ed3cb84b3e103
 
 function AppLayout() {
   return (
