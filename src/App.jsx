@@ -44,8 +44,11 @@ import AllSet from "./Pages/AllSet";
 import Automatic from "./Pages/Automatic";
 import CardSaved from "./Pages/CardSaved";
 import GroupDashboard from "./Pages/GroupDashboard";
+<<<<<<< HEAD
 import UploadDocument from "./Pages/UploadDocument";
+=======
 import Goals from "./Pages/Goals";
+>>>>>>> a8c938e36e45182ae735b662676ed3cb84b3e103
 
 function AppLayout() {
   return (
@@ -66,13 +69,10 @@ const router = createBrowserRouter(
       {/* Routes with Navigation */}
       <Route element={<AppLayout />}>
         <Route path="home" element={<Home />} />
-        <Route path="Goals" element={<Experience />} /> 
-        <Route path="goals-test" element={<Goals />} /> 
         <Route path="Groups" element={<Groups />} />
         <Route path="MyProfile" element={<MyProfile />} />
         <Route path="EditProfile" element={<EditProfile />} />
         <Route path="Notifications" element={<Notifications />} />
-        <Route path="PersonalInfo" element={<PersonalInfo />} />
         <Route path="MyCardsSection" element={<MyCardsSection />} />
         <Route path="carduser" element={<CardUser />} />
         <Route path="Dailydebit" element={<Dailydebit />} />
@@ -80,17 +80,18 @@ const router = createBrowserRouter(
         <Route path="MonthlyDebit" element={<MonthlyDebit />} />
         <Route path="AutomatedSavings" element={<AutomatedSavings />} />
         <Route path="Automatic" element={<Automatic />} />
-        <Route path="active-experience" element={<ActiveExperience />} />
-        <Route path="CardSaved" element={<CardSaved />} />
         <Route path="GroupDashboard" element={<GroupDashboard />} />
       </Route>
 
       {/* Routes without Navigation */}
       <Route element={<AuthLayout />}>
+        <Route path="PersonalInfo" element={<PersonalInfo />} />
+        <Route path="active-experience" element={<ActiveExperience />} />
         <Route index element={<OnboardingScreen />} />
         <Route path="signin" element={<SigninPage />} action={signinAction} />
         <Route path="forgotPassword" element={<ForgotPassword />} />
         <Route path="verifyCode" element={<VerifyCode />} />
+        <Route path="CardSaved" element={<CardSaved />} />
         <Route path="setNewPassword" element={<SetNewPassword />} />
         <Route path="passwordChanged" element={<PasswordChanged />} />
         <Route path="experience" element={<Experience />} />
