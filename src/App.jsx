@@ -42,6 +42,7 @@ import AllSet from "./Pages/AllSet";
 import Automatic from "./Pages/Automatic";
 import CardSaved from "./Pages/CardSaved";
 import GroupDashboard from "./Pages/GroupDashboard";
+import Goals from "./Pages/Goals";
 
 function AppLayout() {
   return (
@@ -62,7 +63,10 @@ const router = createBrowserRouter(
       {/* Routes with Navigation */}
       <Route element={<AppLayout />}>
         <Route path="home" element={<Home />} />
-        <Route path="Goals" element={<Experience />} />
+        <Route path="Goals" element={<Experience />} /> /* create a route for
+        Experience*/
+        <Route path="goals-test" element={<Goals />} /> /* create a route for
+        Experience*/
         <Route path="Groups" element={<Groups />} />
         <Route path="MyProfile" element={<MyProfile />} />
         <Route path="EditProfile" element={<EditProfile />} />
