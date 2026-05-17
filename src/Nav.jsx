@@ -26,7 +26,6 @@ const Nav = () => {
         "/my-profile",
         "/EditProfile",
         "/Notifications",
-        "/Goals",
         "/PersonalInfo",
         "/personal-info",
         "/MyCardsSection",
@@ -37,7 +36,7 @@ const Nav = () => {
 
   return (
     <div>
-      <nav className="fixed bottom-3 left-0 right-0 z-50 mx-auto flex w-full max-w-md items-center justify-between bg-white px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-2 shadow-[0_-2px_12px_rgba(0,0,0,0.08)] min-[360px]:px-6">
+      <nav className="fixed bottom-0 left-0 right-0 z-50 mx-auto flex w-full h-[72px] max-w-md items-center justify-between bg-white px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-2 shadow-[0_-2px_12px_rgba(0,0,0,0.08)] min-[360px]:px-6">
         {navItems.map(({ label, icon, path, matchPaths }) => {
           const isActive = (matchPaths || [path]).includes(location.pathname);
           const itemColor = isActive ? "#44A1A0" : "#A09CAB";

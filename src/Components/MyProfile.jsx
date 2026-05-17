@@ -27,7 +27,7 @@ const MyProfile = () => {
   return (
     <div className="min-h-screen bg-[#eef8f8] px-1">
       <div className="container min-h-screen w-full max-w-md bg-white mx-auto px-4 pt-5 pb-28 shadow-[0_10px_40px_rgba(71,109,119,0.08)]">
-        <div className="mb-6 mt-7 flex items-center justify-between">
+        <div className="mb-6 mt-2 flex items-center justify-between">
           <div>
             <h1 className="text-[28px] font-bold leading-tight text-[#393F4A]">
               My Profile
@@ -115,6 +115,7 @@ const MyProfile = () => {
         <button
           type="button"
           className="mt-8 flex w-full items-center justify-center gap-2 rounded-xl bg-[#B3261E] px-4 py-3 text-[16px] font-medium text-white shadow-[0_10px_24px_rgba(197,42,32,0.22)]"
+          onClick={() => navigate("/signin")}
         >
           <span>Log Out</span>
         </button>
