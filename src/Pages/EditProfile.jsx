@@ -109,14 +109,14 @@ const EditProfile = () => {
               <button
                 type="button"
                 onClick={closePhotoOptions}
-                className="flex h-[48px] w-[342px] items-center justify-center rounded-[10px] bg-[#4CA6A6] text-[16px] font-medium text-white"
+                className="flex h-[48px] w-full items-center justify-center rounded-[10px] bg-[#4CA6A6] text-[16px] font-medium text-white"
               >
                 Select from Album
               </button>
               <button
                 type="button"
                 onClick={closePhotoOptions}
-                className="relative flex h-[48px] w-[342px] flex-col items-center justify-center overflow-hidden rounded-[10px] border border-[#D9DEE7] bg-white text-[#A6AEBB]"
+                className="relative flex h-[48px] w-full flex-col items-center justify-center overflow-hidden rounded-[10px] border border-[#D9DEE7] bg-white text-[#A6AEBB]"
               >
                 <span className="text-[16px] font-medium">Take a photo</span>
               </button>

@@ -81,7 +81,7 @@ const ActiveExperience = () => {
   return (
     <div className="min-h-screen bg-white">
       <Progress color="#44A1A0" size="xs" value={75} />
-      <div className="mx-auto flex min-h-[calc(100vh-4px)] w-full max-w-md flex-col px-4 pb-6 pt-[180px] sm:px-6 sm:pt-14">
+      <div className="mx-auto flex min-h-[calc(100vh-4px)] w-full max-w-md flex-col justify-center px-4 pb-6 pt-10 sm:px-6">
         <div className="text-center">
           <div className="text-[24px] font-bold leading-tight text-[#163A11] sm:text-[28px]">
             Active Saving Goals
@@ -92,7 +92,7 @@ const ActiveExperience = () => {
           </div>
         </div>
 
-        <div className="mt-8 grid grid-cols-2 gap-5 sm:gap-4">
+        <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-4">
           {featureCards.map((card) => {
             const isActive = selectedGoals.includes(card.id);
             return (

@@ -1,9 +1,16 @@
 import img18 from "../imgs/image 18.png";
+import { Navigate, useNavigate } from "react-router-dom";
+
 
 export default function AllSet() {
+    const navigate = useNavigate();
+
   return (
     <main className="min-h-screen bg-white font-aeonik">
-      <div className="mx-auto flex min-h-screen w-full max-w-[393px] flex-col px-[22px]">
+      <div
+        className="mx-auto flex min-h-screen w-full max-w-[393px] flex-col px-[22px]"
+        onClick={() => navigate("/home")}
+      >
         <section className="flex flex-1 flex-col items-center justify-center text-center py-24">
           <img
             src={img18}

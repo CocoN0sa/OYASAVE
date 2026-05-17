@@ -48,7 +48,7 @@ export default function SignupScreen() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col justify-center px-6 py-[103px] min-h-dvh md:items-center lg:px-8 font-aeonik">
+    <div className="flex flex-col justify-center px-6 py-8 min-h-dvh min-[380px]:py-[103px] md:items-center lg:px-8 font-aeonik">
       <Box className="w-full max-w-[350px] md:max-w-[400px]">
         <Box className="flex flex-col items-start mb-6">
           <Text className="font-bold! pb-1! text-[28px]! md:text-[32px]! text-[#393F4A]! leading-tight!">

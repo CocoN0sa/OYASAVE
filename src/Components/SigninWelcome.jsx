@@ -23,8 +23,8 @@ const SigninWelcome = () => {
             John Doe
           </div>
           <div className="mt-3 text-center text-[14px] leading-6 text-[#6C7280] sm:text-[16px]">
-            Select features you are most interested in on <br /> the next page
-            to personalize your savings <br /> experience
+            Select features you are most interested in on <span className="mobile-break"><br /></span>the next page
+            to personalize your savings <span className="mobile-break"><br /></span>experience
           </div>
         </div>
 

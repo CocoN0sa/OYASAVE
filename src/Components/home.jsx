@@ -57,7 +57,7 @@ export default function FinanceApp() {
             <div className="absolute -bottom-4 -left-4 w-24 h-24 rounded-full opacity-10 bg-white" />
             <p className="text-xs text-teal-200 font-semibold tracking-widest uppercase mb-1">Available Balance</p>
             <div className="flex items-center justify-between mb-1">
-              <h2 className="text-3xl font-bold text-white tracking-tight">
+              <h2 className="min-w-0 text-[26px] font-bold tracking-tight text-white min-[360px]:text-3xl">
                 {balanceVisible ? "₦200,000.00" : "₦" + "•".repeat(9)}
               </h2>
               <button

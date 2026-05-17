@@ -42,12 +42,12 @@ const Dailydebit = () => {
         <Text className="text-[16px]! font-normal! text-[#344054]! mb-1!">
           Debit Time
         </Text>
-        <div className="flex items-center justify-between border border-[#D0D5DD] rounded-[12px] px-2 py-3.5">
+        <div className="flex flex-wrap items-center justify-between gap-3 border border-[#D0D5DD] rounded-[12px] px-2 py-3.5">
           <div className="flex items-center gap-3">
             <IconClock stroke={1.5} color="#667085" />
           </div>
           
-          <div className="flex items-center gap-2 w-[229px] h-[23px]">
+          <div className="flex min-w-0 flex-1 items-center justify-end gap-2">
             {/* Hour/Minute boxes */}
             <input
               type="text"

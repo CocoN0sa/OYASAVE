@@ -121,7 +121,7 @@ const Goals = () => {
           </p>
         </div>
 
-        <div className="flex gap-2 mb-6">
+        <div className="flex flex-wrap gap-2 mb-6">
           {filters.map((f) => (
             <button
               key={f}
@@ -147,7 +147,7 @@ const Goals = () => {
                 onClick={() => handleGoalClick(goal)}
                 className="flex items-center justify-between cursor-pointer py-3 border-b border-[#F3F4F6]"
               >
-                <div className="flex items-center gap-3">
+                <div className="flex min-w-0 items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-[#E6F7F6] flex items-center justify-center">
                     <span className="text-[16px]">
                       {goal.category === "Education"
@@ -157,7 +157,7 @@ const Goals = () => {
                         : "🏠"}
                     </span>
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-[14px] font-semibold text-[#393F4A]">
                       {goal.name}
                     </p>
@@ -268,7 +268,7 @@ const Goals = () => {
           />
         </div>
 
-        <div className="flex gap-3 mb-3">
+        <div className="flex flex-col gap-3 mb-3 min-[360px]:flex-row">
           {selectedGoal.status === "Completed" ? (
             <>
               <button className="flex-1 bg-[#0D9488] text-white py-3 rounded-xl text-[14px] font-semibold">
@@ -291,7 +291,7 @@ const Goals = () => {
           )}
         </div>
 
-        <div className="flex gap-3 mb-3">
+        <div className="flex flex-col gap-3 mb-3 min-[360px]:flex-row">
           <button className="flex-1 border border-[#E5E7EB] text-[#393F4A] py-3 rounded-xl text-[13px] font-medium flex items-center justify-center gap-2">
             ✏️ Edit Goal
           </button>
@@ -300,7 +300,7 @@ const Goals = () => {
           </button>
         </div>
 
-        <div className="flex gap-3 mb-6">
+        <div className="flex flex-col gap-3 mb-6 min-[360px]:flex-row">
           <button className="flex-1 border border-[#E5E7EB] text-[#393F4A] py-3 rounded-xl text-[13px] font-medium flex items-center justify-center gap-2">
             ✅ Complete
           </button>
@@ -388,7 +388,7 @@ const Goals = () => {
           <label className="text-[13px] font-semibold text-[#393F4A] mb-2 block">
             Category
           </label>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -523,7 +523,7 @@ const Goals = () => {
         <p className="text-[14px] text-[#6B7280] text-center mb-8">
           Your new savings goal has been set up. Start saving today!
         </p>
-        <div className="flex gap-3 w-full">
+        <div className="flex w-full flex-col gap-3 min-[360px]:flex-row">
           <button
             onClick={() => {
               setSelectedGoal(goals[goals.length - 1]);
