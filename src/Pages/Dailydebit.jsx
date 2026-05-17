@@ -9,7 +9,7 @@ const Dailydebit = () => {
   const [minute, setMinute] = useState("00");
 
   return (
-    <div className="flex flex-col px-6 py-10 max-w-[400px] mx-auto font-aeonik">
+    <div className="flex flex-col px-6 py-10 pb-24 max-w-[400px] mx-auto font-aeonik">
       {/* Back Arrow */}
       <div className="mb-6">
         <Link to="/AutomatedSavings">

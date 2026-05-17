@@ -31,7 +31,7 @@ export default function FinanceApp() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex mb-15 justify-center items-start min-h-screen bg-gray-200">
+    <div className="flex justify-center items-start min-h-screen bg-gray-200">
       <div
         className="w-full max-w-md min-h-screen bg-white overflow-y-auto"
         style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -155,7 +155,7 @@ export default function FinanceApp() {
           </div>
 
           {/* Bottom Buttons */}
-          <div className="grid grid-cols-2 gap-3 pb-6">
+          <div className="grid grid-cols-2 gap-3 pb-24">
             <button
               onClick={() => navigate("/CreateGroup")}
               className="flex items-center justify-center gap-2 py-2.5 rounded-2xl text-white text-sm font-bold active:scale-95 transition-all  bg-[#44A1A0]"

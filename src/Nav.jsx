@@ -14,7 +14,7 @@ const Nav = () => {
 
   const navItems = [
     { label: "Home", icon: House, path: "/home" },
-    { label: "Savings", icon: PiggyBank, path: "/home" },
+    { label: "Savings", icon: PiggyBank, path: "/Savings" },
     { label: "Goals", icon: TargetIcon, path: "/Goals" },
     { label: "Groups", icon: UsersRound, path: "/Groups", matchPaths: ["/Groups", "/ExploreGroup"] },
     {

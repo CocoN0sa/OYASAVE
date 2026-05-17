@@ -18,7 +18,7 @@ const EditProfile = () => {
 
   return (
     <div className="min-h-screen bg-[#eef8f8] px-1">
-      <div className="container min-h-screen w-full max-w-md bg-white mx-auto px-4 pt-5 pb-12 shadow-[0_10px_40px_rgba(71,109,119,0.08)]">
+      <div className="container min-h-screen w-full max-w-md bg-white mx-auto px-4 pt-5 pb-24 shadow-[0_10px_40px_rgba(71,109,119,0.08)]">
         <button type="button" onClick={() => navigate("/MyProfile")}>
           <p className="text-4xl text-[#44A1A0]">←</p>
         </button>

@@ -46,6 +46,7 @@ import CardSaved from "./Pages/CardSaved";
 import GroupDashboard from "./Pages/GroupDashboard";
 import UploadDocument from "./Pages/UploadDocument";
 import Goals from "./Pages/Goals"
+import Savings from "./Pages/Savings"
 
 function AppLayout() {
   return (
@@ -78,6 +79,7 @@ const router = createBrowserRouter(
         <Route path="AutomatedSavings" element={<AutomatedSavings />} />
         <Route path="Automatic" element={<Automatic />} />
         <Route path="Goals" element={<Goals/>} />
+        <Route path="Savings" element={<Savings />} />
         <Route path="GroupDashboard" element={<GroupDashboard />} />
       </Route>
 

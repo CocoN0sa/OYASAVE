@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Nav from "../Nav";
 
 const TEAL = "#1a7f6e";
 const TEAL_DARK = "#155f52";
@@ -40,7 +39,7 @@ export default function GroupDashboard({ group, onBack }) {
   const visibleMembers = showAllMembers ? dashboardMembers : dashboardMembers.slice(0, 3);
 
   return (
-    <div className="flex pb-15 flex-col min-h-screen max-w-md mx-auto bg-white" style={{ fontFamily: "'DM Sans', 'Nunito', sans-serif" }}>
+    <div className="flex flex-col min-h-screen max-w-md mx-auto bg-white" style={{ fontFamily: "'DM Sans', 'Nunito', sans-serif" }}>
 
       {/* Scrollable content */}
       <div className="flex-1 overflow-y-auto pb-2">
@@ -153,7 +152,7 @@ export default function GroupDashboard({ group, onBack }) {
         </div>
 
         {/* Action buttons */}
-        <div className="flex gap-3 px-5 pb-5 mt-1">
+        <div className="flex gap-3 px-5 pb-24 mt-1">
           <button
             className="flex-1 py-3.5 rounded-2xl font-bold text-sm transition-all bg-gray-100  bg-opacity-20 text-gray-600"
           >
@@ -166,8 +165,6 @@ export default function GroupDashboard({ group, onBack }) {
           </button>
         </div>
       </div>
-
-      <Nav />
     </div>
   );
 }
