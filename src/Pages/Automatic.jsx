@@ -3,10 +3,29 @@ import { useNavigate } from "react-router-dom";
 
 const Automatic = () => {
   const navigate = useNavigate();
+  const [cardholderName, setCardholderName] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
   const [expiry, setExpiry] = useState("");
+  const [cvv, setCvv] = useState("");
 
   const handleSkip = () => {
     navigate("/allset", { state: { redirectTo: "/home" } });
+  };
+
+  const handleSaveCard = (event) => {
+    event.preventDefault();
+
+    if (
+      !cardholderName.trim() ||
+      !cardNumber.trim() ||
+      !expiry.trim() ||
+      !cvv.trim()
+    ) {
+      alert("Please fill in all card details before continuing");
+      return;
+    }
+
+    navigate("/CardSaved");
   };
 
   return (
@@ -33,7 +52,7 @@ const Automatic = () => {
           </p>
         </div>
 
-        <form className="mt-5 flex w-full flex-1 flex-col">
+        <form className="mt-5 flex w-full flex-1 flex-col" onSubmit={handleSaveCard}>
           <div className="w-full">
             <label
               htmlFor="cardholder-name"
@@ -46,6 +65,9 @@ const Automatic = () => {
               id="cardholder-name"
               name="cardholderName"
               placeholder="Enter Cardholder Name"
+              value={cardholderName}
+              onChange={(e) => setCardholderName(e.currentTarget.value)}
+              required
               className="mt-1 h-[48px] w-full rounded-[12px] border border-[#D0D5DD] px-3 placeholder:text-[14px] placeholder:font-normal placeholder:leading-4 placeholder:text-[#98A2B3]"
             />
           </div>
@@ -60,6 +82,11 @@ const Automatic = () => {
               name="cardNumber"
               inputMode="numeric"
               placeholder="Enter Card Number"
+              value={cardNumber}
+              onChange={(e) =>
+                setCardNumber(e.currentTarget.value.replace(/\D/g, ""))
+              }
+              required
               className="mt-1 h-[48px] w-full rounded-[12px] border border-[#D0D5DD] px-3 placeholder:text-[14px] placeholder:font-normal placeholder:leading-4 placeholder:text-[#98A2B3]"
             />
           </div>
@@ -83,6 +110,7 @@ const Automatic = () => {
                 const raw = e.target.value.replace(/\D/g, "").slice(0, 4);
                 setExpiry(raw.length > 2 ? raw.slice(0, 2) + "/" + raw.slice(2) : raw);
               }}
+              required
               className="mt-1 h-[48px] w-full rounded-[12px] border border-[#D0D5DD] px-3 placeholder:text-[14px] placeholder:font-normal placeholder:leading-4 placeholder:text-[#98A2B3]"
             />
           </div>
@@ -98,6 +126,11 @@ const Automatic = () => {
               inputMode="numeric"
               maxLength={4}
               placeholder="..."
+              value={cvv}
+              onChange={(e) =>
+                setCvv(e.currentTarget.value.replace(/\D/g, "").slice(0, 4))
+              }
+              required
               className="mt-1 h-[48px] w-full rounded-[12px] border border-[#D0D5DD] px-3 placeholder:px-3 placeholder:text-[30px] placeholder:leading-4 placeholder:text-[#98A2B3]"
             />
           </div>
@@ -106,7 +139,6 @@ const Automatic = () => {
             <button
               type="submit"
               className="h-[48px] w-full rounded-[12px] border border-[#44A1A0] bg-[#44A1A0] px-3 text-[16px] text-white transition-all duration-300 ease-out hover:border-[#3b8c8b] hover:bg-[#3b8c8b]"
-              onClick={() => navigate("/CardSaved")}
             >
               Save card
             </button>

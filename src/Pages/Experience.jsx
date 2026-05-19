@@ -140,7 +140,7 @@ const Experience = () => {
           <button
             type="button"
             onClick={() =>
-              navigate("/Automatic", { state: { selectedGoals } })
+              navigate("/active-experience", { state: { selectedGoals } })
             }
             className="h-12 w-full rounded-[12px] bg-[#44A1A0] px-4 text-white transition-all duration-300 ease-out hover:bg-[#3b8c8b]"
             disabled={selectedGoals.length === 0}
