@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
-import CardSaved from "./CardSaved";
+import { useNavigate } from "react-router-dom";
 
 const Automatic = () => {
   const navigate = useNavigate();
   const [expiry, setExpiry] = useState("");
+
+  const handleSkip = () => {
+    navigate("/allset", { state: { redirectTo: "/home" } });
+  };
 
   return (
     <main className="flex min-h-screen justify-center bg-white">
@@ -12,9 +15,12 @@ const Automatic = () => {
         <button
           type="button"
           onClick={() => navigate("/Experience")}
-          className="self-start"
+          className="self-start text-black"
+          style={{ color: "#000000" }}
         >
-          <p className="text-4xl text-[#44A1A0]">←</p>
+          <span className="text-4xl text-black" style={{ color: "#000000" }}>
+            ←
+          </span>
         </button>
         <h1 className="w-full text-[26px] font-bold leading-tight text-[#393F4A] sm:text-[28px]">
           Automated Savings
@@ -99,7 +105,7 @@ const Automatic = () => {
           <div className="mt-auto flex w-full flex-col items-center pt-8">
             <button
               type="submit"
-              className="h-[48px] w-full rounded-[12px] border border-[#44A1A0] bg-[#44A1A0] px-3 text-[16px] text-white"
+              className="h-[48px] w-full rounded-[12px] border border-[#44A1A0] bg-[#44A1A0] px-3 text-[16px] text-white transition-all duration-300 ease-out hover:border-[#3b8c8b] hover:bg-[#3b8c8b]"
               onClick={() => navigate("/CardSaved")}
             >
               Save card
@@ -113,7 +119,8 @@ const Automatic = () => {
 
             <button
               type="button"
-              className="h-[48px] w-full rounded-[12px] border border-[#D0D5DD] bg-[#EFF1F5] px-3 text-[16px] text-[#393F4A]"
+              onClick={handleSkip}
+              className="flex h-[48px] w-full items-center justify-center rounded-[12px] border border-[#D0D5DD] bg-[#EFF1F5] px-3 text-[16px] text-[#393F4A]"
             >
               Skip
             </button>

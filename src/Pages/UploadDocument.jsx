@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import folderUploadIcon from "../imgs/folder-upload.svg";
 
 export default function UploadDocument() {
   const navigate = useNavigate();
@@ -32,8 +33,7 @@ export default function UploadDocument() {
       alert("Please upload a valid ID document");
       return;
     }
-    // Proceed to home page
-    navigate("/home", { state: { document: file } });
+    navigate("/allset", { state: { document: file } });
   };
 
   const handleBack = () => {
@@ -46,10 +46,13 @@ export default function UploadDocument() {
         {/* Back Button */}
         <button
           onClick={handleBack}
-          className="mb-4 p-0 text-gray-600 hover:text-gray-900 transition-colors text-2xl"
+          className="mb-4 self-start p-0 text-black"
+          style={{ color: "#000000" }}
           aria-label="Go back"
         >
-          ←
+          <span className="text-4xl text-black" style={{ color: "#000000" }}>
+            ←
+          </span>
         </button>
 
         {/* Header */}
@@ -128,19 +131,11 @@ export default function UploadDocument() {
               className="hidden"
             />
 
-            <svg
-              className="w-8 h-8 mx-auto mb-3 text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M12 4v16m8-8H4"
-              />
-            </svg>
+            <img
+              src={folderUploadIcon}
+              alt=""
+              className="mx-auto mb-3 h-7 w-7 object-contain"
+            />
 
             <p className="text-sm font-medium text-teal-600 mb-1">
               Click to <span className="underline">select files to upload</span>
@@ -160,7 +155,7 @@ export default function UploadDocument() {
         {/* Next Button */}
         <button
           onClick={handleNext}
-          className="w-full bg-teal-500 hover:bg-teal-600 active:bg-teal-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-colors text-base"
+          className="w-full rounded-lg bg-[#44A1A0] px-4 py-2.5 text-base font-semibold text-white transition-all duration-300 ease-out hover:bg-[#3b8c8b] active:bg-[#3b8c8b]"
         >
           Next
         </button>

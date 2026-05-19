@@ -1,20 +1,25 @@
-﻿import React from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import OnboardingProgress from "../Components/OnboardingProgress";
 
 export default function AlmostDone() {
   const navigate = useNavigate();
 
   return (
-    <main className="flex min-h-screen justify-center bg-white font-aeonik">
-      <div className="flex min-h-screen w-full max-w-md flex-col px-4 pb-28 pt-10 sm:px-6 sm:pt-14">
+    <main className="min-h-screen bg-white font-aeonik">
+      <div className="mx-auto w-full max-w-md px-4 pt-10 sm:px-6 sm:pt-14">
         <button
           type="button"
           onClick={() => navigate(-1)}
           className="self-start"
         >
-          <p className="text-4xl text-[#44A1A0]">←</p>
+          <p className="text-4xl text-black">←</p>
         </button>
+      </div>
 
+      <OnboardingProgress step={4} />
+
+      <div className="mx-auto flex min-h-[calc(100vh-112px)] w-full max-w-md flex-col px-4 pb-28 sm:px-6">
         <section className="flex flex-1 flex-col items-center justify-center text-center">
           <div className="mt-6 w-full">
             <h1 className="text-[28px] font-bold text-[#393F4A]">
@@ -28,7 +33,7 @@ export default function AlmostDone() {
           <button
             type="button"
             onClick={() => navigate("/personal-info")}
-            className="mt-10 h-[46px] w-full rounded-[12px] bg-[#44A1A0] text-[16px] font-medium text-white"
+            className="mt-10 h-[46px] w-full rounded-[12px] bg-[#44A1A0] text-[16px] font-medium text-white transition-all duration-300 ease-out hover:bg-[#3b8c8b]"
           >
             Fill in personal information
           </button>

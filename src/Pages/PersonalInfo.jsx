@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function PersonalInfo() {
   const navigate = useNavigate();
   const [showDatePicker, setShowDatePicker] = useState(false);
+  const [showGenderOptions, setShowGenderOptions] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     middleName: "",
@@ -40,16 +41,21 @@ export default function PersonalInfo() {
     navigate(-1);
   };
 
+  const genderOptions = ["Male", "Female", "Other", "Prefer not to say"];
+
   return (
     <div className="min-h-screen bg-white">
       <div className="mx-auto w-full max-w-sm px-4 pt-4 pb-4">
         {/* Back Button */}
         <button
           onClick={handleBack}
-          className="mb-4 p-0 text-gray-600 hover:text-gray-900 transition-colors text-2xl"
+          className="mb-4 self-start p-0 text-black"
+          style={{ color: "#000000" }}
           aria-label="Go back"
         >
-          ←
+          <span className="text-4xl text-black" style={{ color: "#000000" }}>
+            ←
+          </span>
         </button>
 
         {/* Header */}
@@ -146,20 +152,16 @@ export default function PersonalInfo() {
               Gender
             </label>
             <div className="relative">
-              <select
-                value={formData.gender}
-                onChange={(e) =>
-                  handleInputChange("gender", e.currentTarget.value)
-                }
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm appearance-none bg-white cursor-pointer"
+              <button
+                type="button"
+                onClick={() => setShowGenderOptions((current) => !current)}
+                className="flex w-full items-center justify-between rounded-lg border border-gray-300 bg-white px-4 py-2 text-left text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
               >
-                <option value="">Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-                <option value="Prefer not to say">Prefer not to say</option>
-              </select>
-              <div className="pointer-events-none absolute right-4 top-2 text-gray-400">
+                <span
+                  className={formData.gender ? "text-gray-900" : "text-gray-400"}
+                >
+                  {formData.gender || "Select Gender"}
+                </span>
                 <svg
                   className="w-4 h-4"
                   fill="none"
@@ -170,10 +172,28 @@ export default function PersonalInfo() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                    d="M19 9l-7 7-7-7"
                   />
                 </svg>
-              </div>
+              </button>
+
+              {showGenderOptions && (
+                <div className="absolute z-20 mt-1 max-h-40 w-full overflow-y-auto rounded-lg border border-gray-200 bg-white py-1 shadow-lg">
+                  {genderOptions.map((option) => (
+                    <button
+                      key={option}
+                      type="button"
+                      onClick={() => {
+                        handleInputChange("gender", option);
+                        setShowGenderOptions(false);
+                      }}
+                      className="block h-9 w-full px-4 text-left text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-700"
+                    >
+                      {option}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
@@ -226,7 +246,7 @@ export default function PersonalInfo() {
         {/* Next Button */}
         <button
           onClick={handleNext}
-          className="w-full bg-teal-500 hover:bg-teal-600 active:bg-teal-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-colors text-base"
+          className="w-full rounded-lg bg-[#44A1A0] px-4 py-2.5 text-base font-semibold text-white transition-all duration-300 ease-out hover:bg-[#3b8c8b] active:bg-[#3b8c8b]"
         >
           Next
         </button>
@@ -262,7 +282,7 @@ export default function PersonalInfo() {
 
               <button
                 onClick={() => setShowDatePicker(false)}
-                className="w-full bg-teal-500 hover:bg-teal-600 text-white font-semibold py-2.5 rounded-lg transition-colors"
+                className="w-full rounded-lg bg-[#44A1A0] py-2.5 font-semibold text-white transition-all duration-300 ease-out hover:bg-[#3b8c8b]"
               >
                 Done
               </button>

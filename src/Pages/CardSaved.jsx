@@ -18,7 +18,7 @@ export default function CardSaved() {
 
           <Link
             to="/almostdone"
-            className="mt-7 flex h-[46px] w-full items-center justify-center rounded-[8px] bg-[#44A1A0] text-[16px] font-normal text-white"
+            className="mt-7 flex h-[46px] w-full items-center justify-center rounded-[8px] bg-[#44A1A0] text-[16px] font-normal text-white transition-all duration-300 ease-out hover:bg-[#3b8c8b]"
           >
             Continue
           </Link>

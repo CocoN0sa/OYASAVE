@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from "react";
-import { Progress } from "@mantine/core";
 import img from "../imgs/Group 48095456.jpg";
 import img2 from "../imgs/Group 48095456 (1).jpg";
 import img3 from "../imgs/Group 48095456 (2).jpg";
 import img4 from "../imgs/Group 48095456 (3).jpg";
 import { useNavigate } from "react-router-dom";
+import OnboardingProgress from "../Components/OnboardingProgress";
 
 const Experience = () => {
   const navigate = useNavigate();
@@ -90,8 +90,8 @@ const Experience = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Progress color="cyan" size="xs" value={50} />
-      <div className="mx-auto flex min-h-[calc(100vh-4px)] w-full max-w-md flex-col justify-center px-4 pb-6 pt-10 sm:px-6">
+      <OnboardingProgress step={2} />
+      <div className="mx-auto flex min-h-[calc(100vh-40px)] w-full max-w-md flex-col justify-center px-4 pb-6 pt-10 sm:px-6">
         <div className="text-center">
           <div className="text-[24px] font-bold leading-tight text-[#393F4A] sm:text-[28px]">
             Personalize Your Saving <br />
@@ -142,7 +142,7 @@ const Experience = () => {
             onClick={() =>
               navigate("/Automatic", { state: { selectedGoals } })
             }
-            className="h-12 w-full rounded-[12px] bg-[#44A1A0] px-4 text-white"
+            className="h-12 w-full rounded-[12px] bg-[#44A1A0] px-4 text-white transition-all duration-300 ease-out hover:bg-[#3b8c8b]"
             disabled={selectedGoals.length === 0}
           >
             Continue

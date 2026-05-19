@@ -1,15 +1,26 @@
+import { useEffect } from "react";
 import img18 from "../imgs/image 18.png";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 export default function AllSet() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const redirectTo = location.state?.redirectTo ?? "/home";
+
+  useEffect(() => {
+    const redirectTimer = window.setTimeout(() => {
+      navigate(redirectTo, { replace: true });
+    }, 3000);
+
+    return () => window.clearTimeout(redirectTimer);
+  }, [navigate, redirectTo]);
 
   return (
     <main className="min-h-screen bg-white font-aeonik">
       <div
         className="mx-auto flex min-h-screen w-full max-w-[393px] flex-col px-[22px]"
-        onClick={() => navigate("/home")}
+        onClick={() => navigate(redirectTo, { replace: true })}
       >
         <section className="flex flex-1 flex-col items-center justify-center text-center py-24">
           <img

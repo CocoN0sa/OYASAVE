@@ -1,14 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Progress } from "@mantine/core";
+import OnboardingProgress from "./OnboardingProgress";
 
 const SigninWelcome = () => {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-white">
-      <Progress color="cyan" size="xs" value={50} />
-      <div className="mx-auto flex min-h-[calc(100vh-4px)] w-full max-w-md flex-col px-4 pb-6 pt-12 sm:px-6 sm:pt-16">
+      <OnboardingProgress step={1} />
+      <div className="mx-auto flex min-h-[calc(100vh-40px)] w-full max-w-md flex-col px-4 pb-6 pt-12 sm:px-6 sm:pt-16">
         <div className="flex flex-1 flex-col justify-center">
           <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-[#44A1A0] sm:h-[103px] sm:w-[103px]">
             <span className="text-[36px] font-bold text-white sm:text-[40px]">
@@ -32,7 +32,7 @@ const SigninWelcome = () => {
           <button
             type="button"
             onClick={() => navigate("/experience")}
-            className="h-12 w-full rounded-[12px] bg-[#44A1A0] px-4 text-white"
+            className="h-12 w-full rounded-[12px] bg-[#44A1A0] px-4 text-white transition-all duration-300 ease-out hover:bg-[#3b8c8b]"
           >
             Next
           </button>
