@@ -11,7 +11,6 @@ import PersonalInfoPage from "./Pages/PersonalInfo";
 import MyProfile from "./Components/MyProfile";
 import MyCardsSection from "./Components/MyCardsSection";
 import CardUser from "./Pages/CardUser";
-import EditProfile from "./Pages/EditProfile";
 import Notifications from "./Pages/Notifications";
 import Nav from "./Nav";
 
@@ -69,7 +68,6 @@ const router = createBrowserRouter(
         <Route path="home" element={<Home />} />
         <Route path="Groups" element={<Groups />} />
         <Route path="MyProfile" element={<MyProfile />} />
-        <Route path="EditProfile" element={<EditProfile />} />
         <Route path="Notifications" element={<Notifications />} />
         <Route path="MyCardsSection" element={<MyCardsSection />} />
         <Route path="carduser" element={<CardUser />} />
