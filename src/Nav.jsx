@@ -24,7 +24,6 @@ const Nav = () => {
       matchPaths: [
         "/MyProfile",
         "/my-profile",
-        "/EditProfile",
         "/Notifications",
         "/PersonalInfo",
         "/personal-info",
