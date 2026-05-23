@@ -32,9 +32,9 @@ function StatusBadge({ status }) {
 }
 
 
-export default function GroupDashboard({ group, onBack }) {
+export default function GroupDashboard({ group } = {}) {
   const navigate = useNavigate();
-  const handleBack = onBack ?? (() => navigate(-1));
+  const handleBack = () => navigate(-1);
   const [showAllMembers, setShowAllMembers] = useState(false);
   const visibleMembers = showAllMembers ? dashboardMembers : dashboardMembers.slice(0, 3);
 

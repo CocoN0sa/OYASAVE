@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BackArrow } from "../Components/GroupUI";
+import img18 from "../imgs/image 18.png";
 
 const TEAL = "#2D9C8A";
 
@@ -129,30 +130,7 @@ const USSDIcon = ({ color = "#374151" }) => (
 );
 
 const SuccessIcon = () => (
-  <div className="relative flex items-center justify-center">
-    <div className="w-20 h-20 rounded-full flex items-center justify-center" style={{ background: "#e0f5ee" }}>
-      <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-        <circle cx="22" cy="22" r="20" stroke={TEAL} strokeWidth="2.5" />
-        <path d="M13 22L19 28L31 16" stroke={TEAL} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </div>
-    {[...Array(12)].map((_, i) => {
-      const angle = (i * 30) * Math.PI / 180;
-      const r = 46;
-      const x = 50 + r * Math.cos(angle);
-      const y = 50 + r * Math.sin(angle);
-      const colors = ["#f59e0b", "#10b981", "#3b82f6", "#ef4444", "#8b5cf6", "#f97316"];
-      return (
-        <div key={i} className="absolute rounded-full" style={{
-          left: `${x}%`, top: `${y}%`,
-          transform: "translate(-50%, -50%)",
-          background: colors[i % colors.length],
-          width: i % 3 === 0 ? "6px" : "4px",
-          height: i % 3 === 0 ? "6px" : "4px",
-        }} />
-      );
-    })}
-  </div>
+  <img src={img18} alt="Success" className="w-[130px] h-[130px] object-contain mx-auto" />
 );
 
 function GroupForm({ freq, setFreq, children, paymentSelected }) {

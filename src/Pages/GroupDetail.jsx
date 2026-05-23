@@ -1,23 +1,21 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { typeConfig } from "../data/groupsData.jsx";
 import { BackArrow, StarRating, MemberAvatars } from "../Components/GroupUI";
 import { JoinGroupConfirmation, JoinedSuccessfully } from "./JoinFlow";
-import GroupDashboard from "./GroupDashboard";
 
-const JOIN_SCREENS = { DETAIL: "detail", CONFIRM: "confirm", SUCCESS: "success", DASHBOARD: "dashboard" };
+const JOIN_SCREENS = { DETAIL: "detail", CONFIRM: "confirm", SUCCESS: "success" };
 
 export default function GroupDetail({ group, onBack }) {
   const cfg = typeConfig[group.type];
   const [joinScreen, setJoinScreen] = useState(JOIN_SCREENS.DETAIL);
+  const navigate = useNavigate();
 
   if (joinScreen === JOIN_SCREENS.CONFIRM) {
     return <JoinGroupConfirmation group={group} onConfirm={() => setJoinScreen(JOIN_SCREENS.SUCCESS)} onCancel={() => setJoinScreen(JOIN_SCREENS.DETAIL)} />;
   }
   if (joinScreen === JOIN_SCREENS.SUCCESS) {
-    return <JoinedSuccessfully group={group} onViewDashboard={() => setJoinScreen(JOIN_SCREENS.DASHBOARD)} />;
-  }
-  if (joinScreen === JOIN_SCREENS.DASHBOARD) {
-    return <GroupDashboard group={group} onBack={() => setJoinScreen(JOIN_SCREENS.SUCCESS)} />;
+    return <JoinedSuccessfully group={group} onViewDashboard={() => navigate("/GroupDashboard")} />;
   }
 
   return (

@@ -88,34 +88,10 @@ export function StatusBadge({ status }) {
   );
 }
 
-function ConfettiDot({ style }) {
-  return <div className="absolute rounded-full" style={style} />;
-}
+import img18 from "../imgs/image 18.png";
 
 export function SuccessIcon() {
-  const dots = [
-    { top: "8%", left: "20%", width: 6, height: 6, color: "#FFD166", delay: 0 },
-    { top: "12%", right: "22%", width: 5, height: 5, color: "#06D6A0", delay: 0.1 },
-    { top: "30%", left: "5%", width: 4, height: 4, color: "#EF476F", delay: 0.15 },
-    { top: "30%", right: "5%", width: 5, height: 5, color: "#118AB2", delay: 0.2 },
-    { bottom: "28%", left: "12%", width: 6, height: 6, color: "#FFD166", delay: 0.05 },
-    { bottom: "28%", right: "12%", width: 4, height: 4, color: "#EF476F", delay: 0.25 },
-    { bottom: "10%", left: "35%", width: 5, height: 5, color: "#06D6A0", delay: 0.1 },
-    { bottom: "10%", right: "35%", width: 6, height: 6, color: "#118AB2", delay: 0.3 },
-  ];
   return (
-    <div className="relative w-28 h-28 mx-auto mb-6">
-      {dots.map((d, i) => (
-        <ConfettiDot key={i} style={{ position: "absolute", width: d.width, height: d.height, backgroundColor: d.color, top: d.top, left: d.left, right: d.right, bottom: d.bottom, animation: `popIn 0.4s ease ${d.delay}s both` }} />
-      ))}
-      <div
-        className="w-20 h-20 rounded-full flex items-center justify-center mx-auto"
-        style={{ backgroundColor: tealLight, border: `2px solid ${teal}`, animation: "scaleIn 0.4s cubic-bezier(0.34,1.56,0.64,1) both" }}
-      >
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-          <path d="M8 18L15 25L28 11" stroke={teal} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ animation: "drawCheck 0.4s ease 0.3s both" }} />
-        </svg>
-      </div>
-    </div>
+    <img src={img18} alt="Success" className="w-[130px] h-[130px] object-contain mx-auto mb-6" />
   );
 }
