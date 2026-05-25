@@ -112,7 +112,7 @@ export default function FinanceApp() {
             <button onClick={() => navigate("/Goals")} className="text-[13px] text-[#44A1A0] font-bold">View Goals</button>
           </div>
           <div className="space-y-3 mb-4">
-            {goals.map(({ icon, label, remaining }) => (
+            {goals.map(({ icon, label, remaining, progress }) => (
               <div key={label} className="flex items-center gap-3 p-3 rounded-xl bg-gray-50">
                 <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-xl shadow-sm flex-shrink-0">
                   {icon}
