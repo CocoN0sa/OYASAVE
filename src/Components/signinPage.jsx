@@ -1,6 +1,7 @@
 import { Anchor, Box, Button, Checkbox, Divider, Input, PasswordInput, Text } from "@mantine/core";
 import { useState } from "react";
 import { Form, Link, useActionData, useNavigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { useDisclosure } from "@mantine/hooks";
 import { redirect } from "react-router-dom";
@@ -15,8 +16,12 @@ export async function action({ request }) {
     return { error: "Please fill in all fields." };
   }
 
+<<<<<<< HEAD
   // Demo mode — navigate to loginVerify
   return redirect("/loginVerify");
+=======
+  return redirect("/home");
+>>>>>>> 386beb8cce1e5fc74ab7fce1681e55826b28171a
 }
 
 export default function SigninPage() {
@@ -29,8 +34,15 @@ export default function SigninPage() {
   const handleGoogleSignIn = () => {
     alert("Google OAuth disabled in demo mode");
   };
+    const navigate = useNavigate();
+
+
   return (
+<<<<<<< HEAD
+    <div className="flex flex-col items-center justify-center px-6 py-[103px] md:items-center lg:px-8 font-aeonik">
+=======
     <div className="flex min-h-dvh flex-col justify-center px-6 py-10 min-[380px]:py-[103px] md:items-center lg:px-8 font-aeonik">
+>>>>>>> 386beb8cce1e5fc74ab7fce1681e55826b28171a
       <Box className="w-full max-w-[350px] md:max-w-[400px]">
         <Box className="flex flex-col items-start mb-6">
           <Text className="font-bold! pb-1! text-[28px]! text-[#393F4A]!">

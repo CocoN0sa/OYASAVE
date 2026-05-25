@@ -17,6 +17,7 @@ import {
 } from "react-router-dom";
 import { useState } from "react";
 import { useDisclosure } from "@mantine/hooks";
+import { useNavigate } from "react-router-dom";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export async function action({ request }) {
@@ -28,7 +29,13 @@ export async function action({ request }) {
     return { error: "Passwords do not match. Please try again." };
   }
 
+<<<<<<< HEAD
+  // Supabase removed - demo mode
+  // return redirect(`/verifyCode?from=signup&email=${encodeURIComponent(email)}`);
   return redirect("/loginVerify");
+=======
+  return redirect("/signin-welcome");
+>>>>>>> 386beb8cce1e5fc74ab7fce1681e55826b28171a
 }
 
 export default function SignupScreen() {
@@ -44,9 +51,14 @@ export default function SignupScreen() {
   const handleGoogleSignIn = async () => {
     alert("Google OAuth disabled in demo mode");
   };
+  const navigate = useNavigate();
 
   return (
+<<<<<<< HEAD
+    <div className="flex flex-col items-center justify-center px-6 py-[103px] min-h-dvh md:items-center lg:px-8 font-aeonik">
+=======
     <div className="flex flex-col justify-center px-6 py-8 min-h-dvh min-[380px]:py-[103px] md:items-center lg:px-8 font-aeonik">
+>>>>>>> 386beb8cce1e5fc74ab7fce1681e55826b28171a
       <Box className="w-full max-w-[350px] md:max-w-[400px]">
         <Box className="flex flex-col items-start mb-6">
           <Text className="font-bold! pb-1! text-[28px]! md:text-[32px]! text-[#393F4A]! leading-tight!">
