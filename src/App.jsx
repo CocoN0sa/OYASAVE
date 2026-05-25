@@ -1,8 +1,17 @@
-import { createBrowserRouter, RouterProvider, Outlet, Route, createRoutesFromElements } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  Route,
+  createRoutesFromElements,
+} from "react-router-dom";
 import { MantineProvider } from "@mantine/core";
 import PersonalInfo from "./Components/PersonalInfo";
+import PersonalInfoPage from "./Pages/PersonalInfo";
+import MyProfile from "./Components/MyProfile";
 import MyCardsSection from "./Components/MyCardsSection";
 import CardUser from "./Pages/CardUser";
+import Notifications from "./Pages/Notifications";
 import Nav from "./Nav";
 
 import Home from "./Components/home";
@@ -12,20 +21,46 @@ import VerifyCode from "./Components/verifyCode";
 import SetNewPassword from "./Components/setNewPassword";
 import PasswordChanged from "./Components/passwordChanged";
 import OnboardingScreen from "./Components/onboardingscreen";
+<<<<<<< HEAD
 import SignupScreen, { action as signupAction } from "./Components/signupScreen";
 import AuthCallback, { loader as authCallbackLoader } from "./Components/auth.callback";
 import LoginOtpVerification from "./Components/LoginOtpVerification";
+=======
+import SignupScreen, {
+  action as signupAction,
+} from "./Components/signupScreen";
+import SigninWelcome from "./Components/SigninWelcome";
+import AuthCallback, {
+  loader as authCallbackLoader,
+} from "./Components/auth.callback";
+>>>>>>> 386beb8cce1e5fc74ab7fce1681e55826b28171a
 import AutomatedSavings from "./Pages/AutomatedSavings";
 import Dailydebit from "./Pages/Dailydebit";
 import WeeklyDebit from "./Pages/WeeklyDebit";
 import MonthlyDebit from "./Pages/MonthlyDebit";
 import JoinedSuccessful from "./Pages/JoinedSuccessful";
+<<<<<<< HEAD
 import MotivationAndReminders from "./Pages/MotivationAndReminders";
 import SigninWelcome from "./Components/SigninWelcome";
 import Experience from "./Pages/Experience";
 import AccountCreatedSuccess from "./Components/AccountCreatedSuccess";
 import SplashWelcome from "./Components/SplashWelcome";
 import SecondSplashScreen from "./Components/secondsplashscreen";
+=======
+import Groups from "./Pages/Groups";
+import CreateGroup from "./Pages/CreateGroup";
+import ExploreGroup from "./Pages/ExploreGroup";
+import Experience from "./Pages/Experience";
+import ActiveExperience from "./Pages/ActiveExperience";
+import AlmostDone from "./Pages/AlmostDone";
+import AllSet from "./Pages/AllSet";
+import Automatic from "./Pages/Automatic";
+import CardSaved from "./Pages/CardSaved";
+import GroupDashboard from "./Pages/GroupDashboard";
+import UploadDocument from "./Pages/UploadDocument";
+import Goals from "./Pages/Goals"
+import Savings from "./Pages/Savings"
+>>>>>>> 386beb8cce1e5fc74ab7fce1681e55826b28171a
 
 function AppLayout() {
   return (
@@ -43,6 +78,7 @@ function AuthLayout() {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
+<<<<<<< HEAD
       {/* Routes without Navigation (Auth / Onboarding) */}
       <Route element={<AuthLayout />}>
         <Route index element={<SplashWelcome />} />
@@ -62,20 +98,54 @@ const router = createBrowserRouter(
         <Route path="Experience" element={<Experience />} />
       </Route>
 
+=======
+>>>>>>> 386beb8cce1e5fc74ab7fce1681e55826b28171a
       {/* Routes with Navigation */}
       <Route element={<AppLayout />}>
-        <Route path="personal-info" element={<PersonalInfo />} />
+        <Route path="home" element={<Home />} />
+        <Route path="Groups" element={<Groups />} />
+        <Route path="MyProfile" element={<MyProfile />} />
+        <Route path="Notifications" element={<Notifications />} />
         <Route path="MyCardsSection" element={<MyCardsSection />} />
         <Route path="carduser" element={<CardUser />} />
         <Route path="Dailydebit" element={<Dailydebit />} />
         <Route path="WeeklyDebit" element={<WeeklyDebit />} />
         <Route path="MonthlyDebit" element={<MonthlyDebit />} />
         <Route path="AutomatedSavings" element={<AutomatedSavings />} />
-        <Route path="JoinedSuccessful" element={<JoinedSuccessful />} />
-        <Route path="MotivationAndReminders" element={<MotivationAndReminders />} />
+        <Route path="Automatic" element={<Automatic />} />
+        <Route path="Goals" element={<Goals/>} />
+        <Route path="Savings" element={<Savings />} />
+        <Route path="GroupDashboard" element={<GroupDashboard />} />
       </Route>
-    </Route>
-  )
+
+      {/* Routes without Navigation */}
+      <Route element={<AuthLayout />}>
+        <Route path="PersonalInfo" element={<PersonalInfo />} />
+        <Route path="active-experience" element={<ActiveExperience />} />
+        <Route index element={<OnboardingScreen />} />
+        <Route path="signin" element={<SigninPage />} action={signinAction} />
+        <Route path="forgotPassword" element={<ForgotPassword />} />
+        <Route path="verifyCode" element={<VerifyCode />} />
+        <Route path="CardSaved" element={<CardSaved />} />
+        <Route path="setNewPassword" element={<SetNewPassword />} />
+        <Route path="passwordChanged" element={<PasswordChanged />} />
+        <Route path="experience" element={<Experience />} />
+        <Route path="signin-welcome" element={<SigninWelcome />} />
+        <Route path="almostdone" element={<AlmostDone />} />
+        <Route path="personal-info" element={<PersonalInfoPage />} />
+        <Route path="upload-documents" element={<UploadDocument />} />
+        <Route path="allset" element={<AllSet />} />
+        <Route path="CreateGroup" element={<CreateGroup />} />
+        <Route path="ExploreGroup" element={<ExploreGroup />} />
+        <Route path="signup" element={<SignupScreen />} action={signupAction} />
+        <Route
+          path="auth/callback"
+          element={<AuthCallback />}
+          loader={authCallbackLoader}
+        />
+      </Route>
+    </Route>,
+  ),
 );
 
 function App() {

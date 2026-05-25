@@ -1,14 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Progress } from "@mantine/core";
+import OnboardingProgress from "./OnboardingProgress";
 
 const SigninWelcome = () => {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-white">
-      <Progress color="cyan" size="xs" value={50} />
-      <div className="mx-auto flex min-h-[calc(100vh-4px)] w-full max-w-md flex-col px-4 pb-6 pt-12 sm:px-6 sm:pt-16">
+      <OnboardingProgress step={1} />
+      <div className="mx-auto flex min-h-[calc(100vh-40px)] w-full max-w-md flex-col px-4 pb-6 pt-12 sm:px-6 sm:pt-16">
         <div className="flex flex-1 flex-col justify-center">
           <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-[#44A1A0] sm:h-[103px] sm:w-[103px]">
             <span className="text-[36px] font-bold text-white sm:text-[40px]">
@@ -23,16 +23,16 @@ const SigninWelcome = () => {
             John Doe
           </div>
           <div className="mt-3 text-center text-[14px] leading-6 text-[#6C7280] sm:text-[16px]">
-            Select features you are most interested in on <br /> the next page to
-            personalize your savings <br /> experience
+            Select features you are most interested in on <span className="mobile-break"><br /></span>the next page
+            to personalize your savings <span className="mobile-break"><br /></span>experience
           </div>
         </div>
 
         <div className="flex justify-center pt-8">
           <button
             type="button"
-            onClick={() => navigate("/Experience")}
-            className="h-12 w-full rounded-[12px] bg-[#44A1A0] px-4 text-white"
+            onClick={() => navigate("/experience")}
+            className="h-12 w-full rounded-[12px] bg-[#44A1A0] px-4 text-white transition-all duration-300 ease-out hover:bg-[#3b8c8b]"
           >
             Next
           </button>

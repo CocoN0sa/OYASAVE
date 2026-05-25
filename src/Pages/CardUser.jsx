@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import masterlogo from '../imgs/Frame 1618868492.png'
+import { Modal } from "@mantine/core";
+import masterlogo from "../imgs/Frame 1618868492.png";
 import pencil from "../imgs/Group 6847.png";
 import block from "../imgs/unavailable.png";
-import check from '../imgs/check-list.png'
+import check from "../imgs/check-list.png";
+import img18 from "../imgs/image 18.png";
 
 const CardUser = () => {
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    const hasShown = sessionStorage.getItem("cardSavedShown");
+    if (!hasShown) {
+      const timer = setTimeout(() => {
+        sessionStorage.setItem("cardSavedShown", "true");
+        setShowModal(true);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   const handleNavigate = () => {
     navigate("/MyCardsSection");
@@ -135,6 +149,32 @@ const CardUser = () => {
           </button>
         </div>
       </div>
+
+      <Modal
+        opened={showModal}
+        onClose={() => setShowModal(false)}
+        centered
+        size="sm"
+      >
+        <div className="text-center p-4">
+          <img src={img18} alt="" className="mx-auto" />
+          <h1 className="mt-5 text-[28px] font-bold text-[#393F4A]">
+            Card Saved Successfully
+          </h1>
+          <p className="mt-3 text-[15px] text-[#98A2B3]">
+            You have successfully added your card
+          </p>
+          <button
+            onClick={() => {
+              setShowModal(false);
+              navigate("/allset");
+            }}
+            className="mt-7 h-[46px] w-full rounded-[8px] bg-[#44A1A0] text-white"
+          >
+            Continue
+          </button>
+        </div>
+      </Modal>
     </>
   );
 };
