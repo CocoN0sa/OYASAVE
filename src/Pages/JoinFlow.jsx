@@ -1,4 +1,4 @@
-import { teal, tealDark } from "../data/groupsData.jsx";
+import { teal } from "../data/groupsData.jsx";
 import { SuccessIcon } from "../Components/GroupUI";
 
 export function JoinGroupConfirmation({ group, onConfirm, onCancel }) {
