@@ -133,7 +133,7 @@ const SuccessIcon = () => (
   <img src={img18} alt="Success" className="w-[130px] h-[130px] object-contain mx-auto" />
 );
 
-function GroupForm({ freq, setFreq, children, paymentSelected }) {
+function GroupForm({ freq, setFreq, children }) {
   return (
     <>
       <Label>Group Name</Label>
