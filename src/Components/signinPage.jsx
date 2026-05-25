@@ -14,8 +14,8 @@ export async function action({ request }) {
     return { error: "Please fill in all fields." };
   }
 
-  // Demo mode — navigate to PersonalInfo
-  return redirect("/personal-info");
+  // Demo mode — navigate to loginVerify
+  return redirect("/loginVerify");
 }
 
 export default function SigninPage() {
@@ -30,7 +30,7 @@ export default function SigninPage() {
   };
 
   return (
-    <div className="flex flex-col justify-center px-6 py-[103px] md:items-center lg:px-8 font-aeonik">
+    <div className="flex flex-col items-center justify-center px-6 py-[103px] md:items-center lg:px-8 font-aeonik">
       <Box className="w-full max-w-[350px] md:max-w-[400px]">
         <Box className="flex flex-col items-start mb-6">
           <Text className="font-bold! pb-1! text-[28px]! text-[#393F4A]!">Welcome Back</Text>

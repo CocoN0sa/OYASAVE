@@ -15,7 +15,7 @@ export async function action({ request }) {
 
   // Supabase removed - demo mode
   // return redirect(`/verifyCode?from=signup&email=${encodeURIComponent(email)}`);
-  return redirect("/personal-info");
+  return redirect("/loginVerify");
 }
 
 export default function SignupScreen() {
@@ -33,7 +33,7 @@ export default function SignupScreen() {
   };
 
   return (
-    <div className="flex flex-col justify-center px-6 py-[103px] min-h-dvh md:items-center lg:px-8 font-aeonik">
+    <div className="flex flex-col items-center justify-center px-6 py-[103px] min-h-dvh md:items-center lg:px-8 font-aeonik">
       <Box className="w-full max-w-[350px] md:max-w-[400px]">
         <Box className="flex flex-col items-start mb-6">
           <Text className="font-bold! pb-1! text-[28px]! md:text-[32px]! text-[#393F4A]! leading-tight!">Signup To Get Started</Text>
@@ -110,7 +110,7 @@ export default function SignupScreen() {
           <Button 
             type="submit"
             loading={isSubmitting}
-            fullWidth 
+            fullWidth
             className="bg-[#44A1A0]! hover:bg-[#3b8c8b]! text-white! rounded-[12px]! font-normal! text-[16px]! transition-all! duration-300! ease-out! h-12!"
           >
             Create Account
