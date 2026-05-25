@@ -1,4 +1,4 @@
-import { teal } from "../data/groupsData.jsx";
+import { teal, tealLight } from "../data/groupsData.jsx";
 
 export function GroupIcon() {
   return (
