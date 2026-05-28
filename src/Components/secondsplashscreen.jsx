@@ -41,7 +41,7 @@ export default function SecondSplashScreen() {
           </Button>
          <Box className="flex items-center justify-center w-full text-center mt-4">
           <Text className="text-base font-normal! text-[#98A2B3]! text-[16px]!">Don't have an Account ?</Text>
-          <Anchor component={Link} to="/signup" className="text-[#44A1A0]! ml-1! font-normal! text-[16px]!">
+          <Anchor component={Link} to="/onboarding" className="text-[#44A1A0]! ml-1! font-normal! text-[16px]!">
             Sign Up
           </Anchor>
         </Box>

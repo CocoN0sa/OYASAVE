@@ -89,6 +89,8 @@ const router = createBrowserRouter(
         <Route path="allset" element={<AllSet />} />
         <Route path="CreateGroup" element={<CreateGroup />} />
         <Route path="ExploreGroup" element={<ExploreGroup />} />
+        <Route path="AutomatedSavings" element={<AutomatedSavings />} />
+        <Route path="Automatic" element={<Automatic />} />
       </Route>
 
       {/* Routes with Navigation */}
@@ -102,8 +104,6 @@ const router = createBrowserRouter(
         <Route path="Dailydebit" element={<Dailydebit />} />
         <Route path="WeeklyDebit" element={<WeeklyDebit />} />
         <Route path="MonthlyDebit" element={<MonthlyDebit />} />
-        <Route path="AutomatedSavings" element={<AutomatedSavings />} />
-        <Route path="Automatic" element={<Automatic />} />
         <Route path="Goals" element={<Goals />} />
         <Route path="Savings" element={<Savings />} />
         <Route path="GroupDashboard" element={<GroupDashboard />} />
