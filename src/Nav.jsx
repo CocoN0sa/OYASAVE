@@ -25,6 +25,7 @@ const Nav = () => {
         "/MyProfile",
         "/my-profile",
         "/Notifications",
+        "/EditProfile",
         "/PersonalInfo",
         "/personal-info",
         "/MyCardsSection",

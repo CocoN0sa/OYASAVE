@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Bell, ChevronRight, Pencil } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import profile from "../imgs/profile.png";
@@ -23,6 +23,9 @@ const profileGroups = [
 
 const MyProfile = () => {
   const navigate = useNavigate();
+  const [profilePhoto] = useState(() => {
+    return localStorage.getItem("profilePhoto") || "";
+  });
 
   return (
     <div className="min-h-screen bg-[#eef8f8] px-1">
@@ -51,7 +54,15 @@ const MyProfile = () => {
 
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="flex h-[57px] w-[57px] items-center justify-center rounded-full bg-[#f2f4f7] text-[#d5dce1]"></div>
+            <div className="flex h-[57px] w-[57px] items-center justify-center overflow-hidden rounded-full bg-[#f2f4f7] text-[#d5dce1]">
+              {profilePhoto && (
+                <img
+                  src={profilePhoto}
+                  alt="Profile"
+                  className="h-full w-full object-cover"
+                />
+              )}
+            </div>
             <span className="text-[19px] font-bold text-[#393F4A]">
               John Doe
             </span>

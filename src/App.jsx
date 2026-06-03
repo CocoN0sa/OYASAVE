@@ -18,6 +18,7 @@ import Home from "./Components/home";
 import SigninPage, { action as signinAction } from "./Components/signinPage";
 import ForgotPassword from "./Components/forgotPassword";
 import VerifyCode from "./Components/verifyCode";
+import EditProfile from "./Pages/EditProfile";
 import SetNewPassword from "./Components/setNewPassword";
 import PasswordChanged from "./Components/passwordChanged";
 import OnboardingScreen from "./Components/onboardingscreen";
@@ -98,6 +99,7 @@ const router = createBrowserRouter(
         <Route path="home" element={<Home />} />
         <Route path="Groups" element={<Groups />} />
         <Route path="MyProfile" element={<MyProfile />} />
+        <Route path="EditProfile" element={<EditProfile />} />
         <Route path="Notifications" element={<Notifications />} />
         <Route path="MyCardsSection" element={<MyCardsSection />} />
         <Route path="carduser" element={<CardUser />} />
